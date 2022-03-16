@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="d-flex gap-3 mb-3" >
+    <%= link_to "Back to rounds", rounds_path, class: "btn btn-secondary" %>
+    <%= link_to "Show this round", @round, class: "btn btn-secondary" %>
+  </div>
+  <h1>Editing round</h1>
+
+  <%= render "form", round: @round %>
+</div>
+

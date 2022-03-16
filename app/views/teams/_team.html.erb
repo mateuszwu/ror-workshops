@@ -1,0 +1,7 @@
+<div class="card" style="width: 18rem;" id="<%= dom_id team %>">
+  <%= image_tag 'blank-team-logo.png', alt: "Team #{team.name} logo", class: "card-img-top" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= team.name %></h5>
+    <%= link_to "Show this team", team, class: "btn btn-primary" %>
+  </div>
+</div>

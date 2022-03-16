@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="d-flex gap-3 mb-3" >
+    <%= link_to "Back to teams", teams_path, class: "btn btn-secondary" %>
+    <%= link_to "Show this team", @team, class: "btn btn-secondary" %>
+  </div>
+  <h1>Editing team</h1>
+
+  <%= render "form", team: @team %>
+</div>
+

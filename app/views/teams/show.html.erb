@@ -1,0 +1,15 @@
+<div class="container">
+  <%= link_to "Back to teams", teams_path, class: "btn btn-secondary mb-3" %>
+  <div class="card mb-3" style="width: 18rem;" id="<%= dom_id @team %>">
+    <%= image_tag 'blank-team-logo.png', alt: "Team #{@team.name} logo", class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @team.name %></h5>
+    </div>
+  </div>
+
+
+  <div class="d-flex gap-3">
+    <%= link_to "Edit this team", edit_team_path(@team), class: "btn btn-primary"%>
+    <%= link_to "Destroy this team", @team, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete: #{@team.name}" } %>
+  </div>
+</div>

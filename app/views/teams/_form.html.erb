@@ -12,6 +12,13 @@
   <% end %>
 
   <div class="mb-3">
+    <% if team.logo.attached? %>
+      <div>
+        <%= image_tag team.logo, alt: "Team #{team.name} logo" %>
+      </div>
+    <% end %>
+    <%= form.label :logo, class: "form-label" %>
+    <%= form.file_field :logo, class: "form-control" %>
     <%= form.label :name, class: "form-label" %>
     <%= form.text_field :name, class: "form-control" %>
     <div id="emailHelp" class="form-text">Full team name eg. Arsenal F.C.</div>

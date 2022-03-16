@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_action :check_if_user_is_admin
   before_action :set_team, only: %i[show edit update destroy]
 
   # GET /teams
@@ -47,6 +48,10 @@ class TeamsController < ApplicationController
   end
 
   private
+
+  def check_if_user_is_admin
+    redirect_to root_path, notice: 'Only admins can manage teams' unless current_user.is_admin?
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_team

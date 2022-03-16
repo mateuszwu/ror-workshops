@@ -31,7 +31,7 @@
               </li>
               <% if current_user.present? %>
                 <li class="nav-item">
-                  <%= link_to current_user.email, '#', class: "nav-link disabled" %>
+                  <%= user_link(current_user) %>
                 </li>
                 <li class="nav-item">
                   <%= link_to 'Logout', destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete } %>

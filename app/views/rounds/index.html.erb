@@ -1,6 +1,8 @@
 <h3>
   Rounds
-  <small class="text-muted"><%= link_to "New round", new_round_path, class: "btn btn-primary" %></small>
+  <% if current_user.is_admin?%>
+    <small class="text-muted"><%= link_to "New round", new_round_path, class: "btn btn-primary" %></small>
+  <% end %>
 </h3>
 
 <div id="rounds" class="d-flex flex-row bd-highlight mb-3 gap-3">

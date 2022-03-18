@@ -1,0 +1,53 @@
+<div class="d-flex gap-3 mb-3" >
+  <%= link_to "Back to match", round_match_path(@round, @match), class: "btn btn-secondary" %>
+</div>
+
+<%= form_with(model: [round, match, bet]) do |form| %>
+  <% if bet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bet.errors.count, "error") %> prohibited this bet from being saved:</h2>
+
+      <ul>
+        <% bet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <div class="row">
+      <div class='col-md-6'>
+        <div class="card mb-3" style="width: 18rem;" id="<%= dom_id match.home_team %>">
+          <%= team_logo(match.home_team) %>
+          <div class="card-body">
+            <h5 class="card-title"><%= match.home_team.name %></h5>
+          </div>
+        </div>
+      </div>
+      <div class='col-md-6'>
+        <div class="card mb-3" style="width: 18rem;" id="<%= dom_id match.away_team %>">
+          <%= team_logo(match.away_team) %>
+          <div class="card-body">
+            <h5 class="card-title"><%= match.away_team.name %></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class='col-md-6'>
+        <%= form.label :home_team_score, class: "form-label" %>
+        <%= form.number_field :home_team_score, class: "form-control" %>
+      </div>
+      <div class='col-md-6'>
+        <%= form.label :away_team_score, class: "form-label" %>
+        <%= form.number_field :away_team_score, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.submit class:'btn btn-success'%>
+  </div>
+<% end %>

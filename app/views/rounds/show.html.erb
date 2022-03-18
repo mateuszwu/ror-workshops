@@ -4,6 +4,14 @@
     <div class="card-body">
       <h5 class="card-title text-center"><%= "#{@round.number}/#{@round.year}" %></h5>
     </div>
+    <% if current_user.is_admin? %>
+      <div class="d-flex flex-column gap-1">
+        <%= link_to "Summarize round", summarize_round_round_path(@round), class: "btn btn-primary", data: { turbo_method: :post } %>
+        <%= link_to "Add new match", new_round_match_path(@round), class: "btn btn-success"%>
+        <%= link_to "Edit this round", edit_round_path(@round), class: "btn btn-warning"%>
+        <%= link_to "Destroy this round", @round, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this round?" } %>
+      </div>
+    <% end %>
   </div>
 
   <table class="table">
@@ -41,11 +49,4 @@
     </tbody>
   </table>
 
-  <% if current_user.is_admin? %>
-    <div class="d-flex gap-3">
-      <%= link_to "Add new match", new_round_match_path(@round), class: "btn btn-success"%>
-      <%= link_to "Edit this round", edit_round_path(@round), class: "btn btn-primary"%>
-      <%= link_to "Destroy this round", @round, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this round?" } %>
-    </div>
-  <% end %>
 </div>

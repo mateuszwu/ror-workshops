@@ -12,6 +12,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def round_total_points(round)
+    bets.joins(:match).where(match: { round_id: round.id }).sum(:points)
+  end
+
   def total_points
     bets.sum(:points)
   end

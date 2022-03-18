@@ -16,3 +16,41 @@
     <% end %>
   </tbody>
 </table>
+<h1>
+  <%= "Round: #{@round.number}/#{@round.year}" %>
+</h1>
+<%== pagy_bootstrap_nav(@pagy) %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <% @users.each do |user| %>
+        <th scope="col">
+          <%= user_text(user) %>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @round.matches.each do |match| %>
+      <tr>
+        <td><%= "#{match.home_team.name} v #{match.away_team.name}" %></td>
+        <% @users.each do |user| %>
+          <td>
+            <%= match.user_bet(user)&.points || 0 %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <% @users.each do |user| %>
+        <td>
+          <%= user.round_total_points(@round) %>
+        </td>
+      <% end %>
+    </tr>
+  </tfoot>
+</table>

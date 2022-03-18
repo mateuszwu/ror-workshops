@@ -12,6 +12,8 @@
         <th scope="col">Match Day</th>
         <th scope="col">Home Team</th>
         <th scope="col">Away Team</th>
+        <th scope="col">Home Team Score</th>
+        <th scope="col">Away Team Score</th>
         <th scope="col">Your Home Team Score</th>
         <th scope="col">Your Away Team Score</th>
         <th scope="col">Actions</th>
@@ -23,6 +25,8 @@
           <td><%= match.match_date.iso8601 %></td>
           <td><%= match.home_team.name %></td>
           <td><%= match.away_team.name %></td>
+          <td><%= match.home_team_score %></td>
+          <td><%= match.away_team_score %></td>
           <td><%= match.user_bet(current_user)&.home_team_score %></td>
           <td><%= match.user_bet(current_user)&.away_team_score %></td>
           <td>

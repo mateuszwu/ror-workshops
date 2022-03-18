@@ -5,8 +5,24 @@ class Match < ApplicationRecord
   has_many :bets
 
   validates :home_team_id, :away_team_id, :round_id, presence: true
+  validates :home_team_score, :away_team_score, presence: true, on: :update, if: -> { match_date <= Date.today }
+  validate :before_match_day_score, on: :update
   validate :team_uniqueness
   validate :match_uniqueness
+
+  def before_match_day_score
+    # if match_date > Date.today
+    # alternative
+    if match_date.future?
+      if home_team_score.present?
+        errors.add(:home_team_score, "You can't set home team score before the match day")
+      end
+
+      if home_team_score.present?
+        errors.add(:away_team_score, "You can't set away team score before the match day")
+      end
+    end
+  end
 
   def team_uniqueness
     if home_team_id == away_team_id

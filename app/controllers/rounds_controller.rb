@@ -1,5 +1,5 @@
 class RoundsController < ApplicationController
-  before_action :check_if_user_is_admin
+  before_action :require_admin_role
   before_action :set_round, only: %i[show edit update destroy]
 
   # GET /rounds
@@ -9,6 +9,7 @@ class RoundsController < ApplicationController
 
   # GET /rounds/1
   def show
+    @matches = @round.matches.includes(:home_team, :away_team)
   end
 
   # GET /rounds/new
@@ -48,10 +49,6 @@ class RoundsController < ApplicationController
   end
 
   private
-
-  def check_if_user_is_admin
-    redirect_to root_path, notice: 'Only admins can manage rounds' unless current_user.is_admin?
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_round

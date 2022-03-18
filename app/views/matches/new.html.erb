@@ -3,4 +3,10 @@
   <%= link_to "Back to round", @round, class: "btn btn-secondary" %>
 </div>
 
-<%= render "form", match: @match %>
+<%= form_with(model: [@round, @match]) do |form| %>
+  <%= render "form", match: @match, form: form %>
+
+  <div class="form-group mt-3">
+    <%= form.submit class:'btn btn-success'%>
+  </div>
+<% end %>

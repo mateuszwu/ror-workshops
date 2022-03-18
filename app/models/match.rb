@@ -1,6 +1,8 @@
 class Match < ApplicationRecord
   belongs_to :home_team, class_name: 'Team'
   belongs_to :away_team, class_name: 'Team'
+  belongs_to :round
+  has_many :bets
 
   validates :home_team_id, :away_team_id, :round_id, presence: true
   validate :team_uniqueness
@@ -29,5 +31,9 @@ class Match < ApplicationRecord
     # if match.present? && match.id != id
     #   errors.add(:match_date, 'Selected teams have already scheduled match this day')
     # end
+  end
+
+  def user_bet(user)
+    bets.find_by(user_id: user.id)
   end
 end

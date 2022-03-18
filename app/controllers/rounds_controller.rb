@@ -1,5 +1,5 @@
 class RoundsController < ApplicationController
-  before_action :require_admin_role
+  before_action :require_admin_role, only: %i[new create edit update destroy]
   before_action :set_round, only: %i[show edit update destroy]
 
   # GET /rounds
@@ -9,7 +9,7 @@ class RoundsController < ApplicationController
 
   # GET /rounds/1
   def show
-    @matches = @round.matches.includes(:home_team, :away_team)
+    @matches = @round.matches.includes(:home_team, :away_team, :bets)
   end
 
   # GET /rounds/new

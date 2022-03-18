@@ -9,6 +9,7 @@ class RoundsController < ApplicationController
 
   # GET /rounds/1
   def show
+    @matches = @round.matches.includes(:home_team, :away_team)
   end
 
   # GET /rounds/new

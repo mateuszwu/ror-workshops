@@ -1,1 +1,18 @@
-Welcome to the Football Typper
+<h1>Leaderboard</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user_text(user) %></td>
+        <td><%= user.total_points %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

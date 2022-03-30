@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
         if @team.save
             redirect_to teams_path
         else
-            "duppppa"
+            render :new, status: :unprocessable_entity
         end
 
     end

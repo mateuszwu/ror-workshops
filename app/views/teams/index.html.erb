@@ -1,0 +1,14 @@
+<h1 style="fw-bold" >Teams</h1>
+
+<ul class="list-group" >
+  <% @teams.each do |team| %>
+    <li class="list-group-item">
+      <%= link_to team.name, team %>
+    </li>
+
+
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New team", new_team_path %>

@@ -1,0 +1,11 @@
+<%= form_with model: @team do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

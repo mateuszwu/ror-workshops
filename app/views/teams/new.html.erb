@@ -1,0 +1,7 @@
+<%= form_with(model: @team) do |form| %>
+  <% @team.errors.each do |error| %>
+    <%= error.full_message %>
+  <% end %>
+<%= form.text_field :name %>
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<% @teams.each do |team| %>
+  <li>
+    <%= team.name %>
+    <%= link_to "Destroy", team_path(team), data: {
+      turbo_method: :delete
+    } %>
+    <%= link_to "Edit", edit_team_path(team) %>
+  </li>
+<% end %>

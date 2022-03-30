@@ -1,2 +1,8 @@
-<%= render "teams/form" %>
-  <%= link_to "Destroy", team_path(@team), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <%= render "teams/form" %>
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+    <%= link_to "Destroy", team_path(@team), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<%= form_with model: @team do |form| %>
+  <p>
+    <%= form.text_field :name %>
+  </p>
+  <% binding.break%>
+  <% @team.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

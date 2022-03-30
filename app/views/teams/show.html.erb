@@ -1,0 +1,9 @@
+<h1><%= @team.name %></h1>
+
+<ul>
+  <li><%= link_to "Edit", edit_team_path(@team) %></li>
+  <li><%= link_to "Destroy", team_path(@team), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>

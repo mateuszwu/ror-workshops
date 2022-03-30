@@ -1,9 +1,26 @@
-<h1>Teams</h1>
-
-<ul>
-  <% @teams.each do |team| %>
-    <li>
-      <%= link_to team.name, team %>
-    </li>
-  <% end %>
-</ul>
+<div class="card w-75 mt-5 text-center">
+  <div class="card-header h1 text-center">
+    Teams
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-hover">
+      <thead class="table-light">
+      <tr>
+        <th>Team name</th>
+        <th colspan="2"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @teams.each do |team| %>
+        <tr>
+          <td><%= team.name %></td>
+          <td><%= link_to "Show", team, class: "btn btn-secondary btn-sm" %></td>
+          <td><%= link_to "Edit", edit_team_path(team), class: "btn btn-dark btn-sm" %></td>
+          <!--          <td><%#= link_to "Destroy", team, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %></td>-->
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to "New Team", new_team_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>

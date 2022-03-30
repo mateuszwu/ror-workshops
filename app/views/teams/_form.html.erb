@@ -1,12 +1,19 @@
-<%= form_with model: @team do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% @team.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.submit "Zapisz" %>
-  </div>
-<% end %>
+<div class="card w-50">
+  <div class="card-body">
+  <div class="form-group d-flex justify-content-center">
+    <div class="col col-5 mt-3 text-center">
+      <%= form_with model: @team do |form| %>
+        <div>
+          <%= form.label :name, class: "mb-2 h1" %><br>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+        <div>
+          <%= input_error(@team, :name) %>
+        </div>
+        <div>
+          <%= form.submit "Save", class: "btn btn-primary mt-2" %>
+        </div>
+      <% end %>
+    </div>
+  </div></div>
+</div>

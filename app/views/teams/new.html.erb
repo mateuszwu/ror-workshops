@@ -1,0 +1,13 @@
+<h1>Add Team</h1>
+
+<%= form_with(model: @team) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.submit %>
+
+  <% @team.errors.full_messages_for(:name).each do |message| %>
+    <div class="text-danger">
+      <%=  message %>
+    </div>
+  <% end %>
+<% end %>

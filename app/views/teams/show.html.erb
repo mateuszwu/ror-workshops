@@ -1,0 +1,15 @@
+<div>
+<h1><%= @team.name %></h1>
+
+  <div>
+    <img src="blank-team-logo.png" class="img-fluid" alt="Responsive image">
+  </div>
+  <div>
+    <%= link_to 'Update Team',edit_team_path(@team), class:"btn btn-success" %>
+  </div>
+  <div>
+    <%= link_to 'Delete Team', @team , class:"btn btn-danger", data:{turbo_method: :delete}%>
+  </div>
+
+
+</div>

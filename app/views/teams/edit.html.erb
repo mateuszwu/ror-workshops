@@ -1,0 +1,15 @@
+<h1>Update Team</h1>
+
+
+
+<%= form_with(model: @team) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.submit %>
+
+  <% @team.errors.full_messages_for(:name).each do |message| %>
+    <div>
+      <%=  message %>
+    </div>
+  <% end %>
+<% end %>

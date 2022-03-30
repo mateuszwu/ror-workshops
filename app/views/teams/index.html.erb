@@ -1,0 +1,11 @@
+<h1>The Leauge</h1>
+
+<%= link_to 'New Team', new_team_path , class:"btn btn-primary" %>
+
+<div class="row" >
+<% @teams.each do |team| %>
+  <div class = "col-4 border">
+    <%= link_to team.name, team %> <br />
+  </div>
+<% end %>
+</div>

@@ -16,7 +16,29 @@ class TeamsController < ApplicationController
             "duppppa"
         end
 
+    end
+
+    def show
+        @team = Team.find(params[:id])
+    end
+
+    def edit
+        @team = Team.find(params[:id])
+
+    end
+
+    def update
+        @team = Team.find(params[:id])
     
+        if @team.update(team_params)
+          redirect_to @team
+        else
+          render :edit, status: :unprocessable_entity
+        end
+      end
+
+    def destroy
+        @team = Team.find(params[:id])
     end
 
     private

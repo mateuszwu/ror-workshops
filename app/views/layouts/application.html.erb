@@ -28,15 +28,21 @@
         <li class="nav-item">
           <%= link_to 'Teams', teams_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
-        </li>
+        <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
         </li>
+          <li class="nav-item">
+            <span class="nav-link"><%= current_user.email %></span>
+          </li>
+          <%else %>
+          <li class="nav-item">
+            <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+          </li>
         <li class="nav-item">
           <%= link_to 'Sign In', new_user_session_path, class: "nav-link" %>
         </li>
+        <%end %>
       </ul>
     </div>
   </div>

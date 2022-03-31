@@ -1,7 +1,11 @@
 <div class="container">
   <%= link_to "Back to teams", teams_path, class: "btn btn-secondary mb-3" %>
   <div class="card mb-3" style="width: 18rem;" id="<%= dom_id @team %>">
+  <%if @team.logo.attached?%>
+    <%= image_tag @team.logo, alt: "Team #{@team.name} logo", class: "card-img-top" %>
+  <%else%>
     <%= image_tag 'blank-team-logo.png', alt: "Team #{@team.name} logo", class: "card-img-top" %>
+  <%end%>
     <div class="card-body">
       <h5 class="card-title"><%= @team.name %></h5>
     </div>

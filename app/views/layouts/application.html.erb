@@ -28,6 +28,24 @@
             <li class="nav-item">
               <%= link_to 'Teams', teams_path, class: "nav-link" %>
             </li>
+            <% if user_signed_in?%>
+               <li class="nav-item">
+                <%= link_to 'Sign_Out', destroy_user_session_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+              <%if current_user.name? %>
+                <%= link_to current_user.name, edit_user_registration_path, class: "nav-link" %>
+              <%else%>
+                <%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %>
+              <%end%>
+            </li>
+
+            <%else%>
+            
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: "nav-link" %>
+            </li>
+            <%end%>
           </ul>
         </div>
       </div>

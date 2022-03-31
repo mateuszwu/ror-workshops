@@ -28,9 +28,11 @@
             <li class="nav-item">
               <%= link_to 'Teams', teams_path, class: "nav-link" %>
             </li>
+            <%if member_signed_in? %>
             <li class="nav-item">
               <%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %>
             </li>
+            <%end%>
           </ul>
         </div>
       </div>

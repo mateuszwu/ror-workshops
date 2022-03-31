@@ -23,10 +23,17 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <%= link_to 'Home', root_path, class: "nav-link active" %>
+              <%= link_to 'Home', root_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to 'Teams', teams_path, class: "nav-link" %>
+            </li>
+            <li>
+              <% if user_signed_in? %>
+                <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+              <% else %>
+                <%= link_to "Log in", new_user_session_path, class:"btn btn-primary" %>
+              <% end %>
             </li>
           </ul>
         </div>

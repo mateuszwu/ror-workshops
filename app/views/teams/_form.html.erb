@@ -10,13 +10,15 @@
       </ul>
     </div>
   <% end %>
-
   <div class="mb-3">
     <%= form.label :name, class: "form-label" %>
     <%= form.text_field :name, class: "form-control" %>
     <div id="emailHelp" class="form-text">Full team name eg. Arsenal F.C.</div>
   </div>
-
+  <div class="mb-3">
+    <%= form.label :avatar, class:"form-label" %>
+    <%= form.file_field :avatar , class:"form-control" %>
+  </div>
   <div class="form-group mb-3">
     <%= form.submit class:'btn btn-success'%>
   </div>

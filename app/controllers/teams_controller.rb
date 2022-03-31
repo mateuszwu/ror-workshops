@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_team, only: %i[show edit update destroy]
 
   # GET /teams
@@ -55,6 +56,6 @@ class TeamsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def team_params
-    params.require(:team).permit(:name)
+    params.require(:team).permit(:name, :avatar)
   end
 end

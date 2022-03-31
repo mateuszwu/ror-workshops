@@ -2,6 +2,9 @@
   <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
+    <%= form.label :avatar %><br>
+    <%= form.file_field :avatar %>
+    
     <% team.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>

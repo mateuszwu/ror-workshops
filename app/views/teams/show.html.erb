@@ -7,5 +7,17 @@
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
-</ul>
 
+
+ <% if @team.avatar.attached? %>
+ 
+
+ <%= image_tag @team.avatar %>
+        
+      <% else %>
+      
+
+           <%= image_tag "placeholder.png" %>
+        <% end %>
+
+</ul>

@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+   
+
     def index
         @teams = Team.all
     end
@@ -12,6 +14,9 @@ class TeamsController < ApplicationController
       
       
         @team = Team.new(name: team_params[:name])
+
+       
+
     
         if @team.save
           redirect_to @team
@@ -43,6 +48,7 @@ class TeamsController < ApplicationController
 
         private
         def team_params
-         params.require(:team).permit(:name)
+         params.require(:team).permit(:name,:avatar)
         end
 end
+

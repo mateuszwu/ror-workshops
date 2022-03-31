@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_31_154154) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_31_173108) do
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -25,7 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_31_154154) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "surename"
     t.string "first_name"
     t.string "surname"
     t.index ["email"], name: "index_users_on_email", unique: true

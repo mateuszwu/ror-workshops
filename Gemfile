@@ -68,3 +68,5 @@ group :development do
   # gem "spring"
 end
 
+
+gem "image_processing", "~> 1.12"

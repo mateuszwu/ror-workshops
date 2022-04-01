@@ -1,9 +1,13 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
-
+  before_action :isAdmin?
   # GET /teams
   def index
-    @teams = Team.all
+    if params[:search] == nil
+      @teams = Team.all
+    else
+      @teams = Team.where("name LIKE ?" ,"%#{params[:search]}%")
+    end
   end
 
   # GET /teams/1

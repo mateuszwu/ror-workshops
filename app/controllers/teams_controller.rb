@@ -4,7 +4,13 @@ class TeamsController < ApplicationController
 
   # GET /teams
   def index
-    @teams = Team.all
+    puts params
+    if not params[:query].nil?
+      @teams = Team.where("name like :query", query: "%#{params[:query]}%")
+    else
+      @teams = Team.all
+    end
+  
   end
 
   # GET /teams/1

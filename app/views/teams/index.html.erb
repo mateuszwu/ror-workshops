@@ -4,6 +4,13 @@
 </h3>
 
 <div id="teams" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
+  <%= form_with method: :get do |form| %>
+    <%= form.label :query, "Search for:" %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
+
+
   <% @teams.each do |team| %>
     <%= render team %>
   <% end %>

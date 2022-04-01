@@ -1,0 +1,9 @@
+<h3>Rounds</h3>
+<% if current_user.admin_profile? %>
+  <small class="text-muted"><%= link_to "New round", new_round_path, class: "btn btn-primary" %></small>
+<% end %>
+<div id="rounds" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
+  <% @rounds.each do |round| %>
+    <%= render round %>
+  <% end %>
+</div>

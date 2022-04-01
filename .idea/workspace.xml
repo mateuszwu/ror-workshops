@@ -2,15 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fa6c458-1ff4-4e5e-b22f-4d45096830b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/round.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/teams_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/teams_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/team.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/team.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/rounds/_form.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/rounds/_round.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/rounds/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/rounds/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/rounds/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/rounds/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/rounds_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/rounds_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/rounds_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/rounds_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/round.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/round.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/teams/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/teams/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/.fuse_hidden0001b4a400000011" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +47,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RubyModuleManagerSettings">
     <option name="blackListedRootsPaths">
@@ -219,7 +225,7 @@
       <workItem from="1648806279223" duration="3548000" />
       <workItem from="1648811356768" duration="367000" />
       <workItem from="1648811725625" duration="619000" />
-      <workItem from="1648817715464" duration="9003000" />
+      <workItem from="1648817715464" duration="16403000" />
     </task>
     <servers />
   </component>

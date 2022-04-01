@@ -1,46 +1,45 @@
 class RoundsController < ApplicationController
   before_action :set_round, only: %i[show edit update destroy]
-  before_action :user_is_admin
-
-  # GET /teams
+  before_action :user_is_admin, only: %i[new create edit update destroy]
+  # GET /rounds
   def index
       @rounds = Round.all
   end
 
-  # GET /teeams/1
+  # GET /rounds/1
   def show
   end
 
-  # GET /teams/new
+  # GET /rounds/new
   def new
     @round = Round.new
   end
 
-  # GET /teams/1/edit
+  # GET /rounds/1/edit
   def edit
   end
 
-  # POST /teams
+  # POST /rounds
   def create
-    @round = Round.new(team_params)
+    @round = Round.new(round_params)
 
     if @round.save
-      redirect_to team_url(@round), notice: 'Round was successfully created.'
+      redirect_to round_url(@round), notice: 'Round was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /teams/1
+  # PATCH/PUT /rounds/1
   def update
-    if @round.update(team_params)
-      redirect_to team_url(@round), notice: 'Round was successfully updated.'
+    if @round.update(round_params)
+      redirect_to round_url(@round), notice: 'Round was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /teams/1
+  # DELETE /rounds/1
   def destroy
     @round.destroy
 
@@ -50,16 +49,16 @@ class RoundsController < ApplicationController
   private
 
   def user_is_admin
-    redirect_to root_path, notice: "Only Admin" unless current_user.admin_profile?
+    redirect_to root_path, notice: "Only for Admin" unless current_user.admin_profile?
   end
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_team
+  def set_round
     @round = Round.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
-  def team_params
+  def round_params
     params.require(:round).permit(:year, :number)
   end
 end

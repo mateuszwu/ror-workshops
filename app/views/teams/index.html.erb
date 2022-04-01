@@ -4,6 +4,10 @@
 </h3>
 
 <div id="teams" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
+<%=form_tag(teams_path, method: :get) do %>
+  <%=text_field_tag(:search, params[:search]) %>
+    <%=submit_tag ("szukaj") %>
+    <%end %>
   <% @teams.each do |team| %>
     <%= render team %>
   <% end %>

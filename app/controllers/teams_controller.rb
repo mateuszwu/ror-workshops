@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
+  before_action :verify_perrmision!
 
   # GET /teams
   def index
@@ -57,4 +58,10 @@ class TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:name, :logo)
   end
+
+  def verify_perrmision!
+    flash[:notice] = 'Missing perrmision'
+    redirect_back_or_to root_path if not admin?
+  end
+
 end

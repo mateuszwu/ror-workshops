@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
+  before_action :authorize_admin
 
   # GET /teams
   def index
@@ -47,6 +48,14 @@ class TeamsController < ApplicationController
   end
 
   private
+
+  def authorize_admin
+    if current_user.isAdmin?
+      true
+    else
+      redirect_to root_path, notice: "Brak dostepu"
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_team

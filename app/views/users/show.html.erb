@@ -9,6 +9,8 @@
 
 
   <div class="d-flex gap-3">
+  <% unless current_user.id != @user.id %>
     <%= link_to "Edit this user", edit_user_path(@user), class: "btn btn-primary"%>
   </div>
+  <%end%>
 </div>

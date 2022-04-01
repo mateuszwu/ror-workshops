@@ -1,6 +1,11 @@
 <h3>
   Teams
   <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
+  <%= form_with url: "/index", method: :get do |form| %>
+  <%= form.label :query, "Search for:" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+<% end %>
 </h3>
 
 <div id="teams" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">

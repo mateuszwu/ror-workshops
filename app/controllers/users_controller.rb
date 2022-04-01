@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
+  before_action :edit_user, only: %i[edit]
 
   # GET /users/1
   def show
@@ -7,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+
   end
 
   # PATCH/PUT /users/1
@@ -19,6 +21,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def edit_user
+    redirect_to root_path, notice: "Brak dostępu" if current_user.id != @user.id
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user

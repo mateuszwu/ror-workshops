@@ -1,14 +1,10 @@
-class TeamsController < ApplicationController
-  before_action :set_team, only: %i[show edit update destroy]
+class RoundsController < ApplicationController
+  before_action :set_round, only: %i[show edit update destroy]
   before_action :user_is_admin
 
   # GET /teams
   def index
-    if params[:search].present?
-      @teams = Team.where(name: params[:search])
-    else
-      @teams = Team.all
-    end
+      @rounds = Round.all
   end
 
   # GET /teeams/1
@@ -17,7 +13,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @team = Team.new
+    @round = Round.new
   end
 
   # GET /teams/1/edit
@@ -26,10 +22,10 @@ class TeamsController < ApplicationController
 
   # POST /teams
   def create
-    @team = Team.new(team_params)
+    @round = Round.new(team_params)
 
-    if @team.save
-      redirect_to team_url(@team), notice: 'Team was successfully created.'
+    if @round.save
+      redirect_to team_url(@round), notice: 'Round was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,8 +33,8 @@ class TeamsController < ApplicationController
 
   # PATCH/PUT /teams/1
   def update
-    if @team.update(team_params)
-      redirect_to team_url(@team), notice: 'Team was successfully updated.'
+    if @round.update(team_params)
+      redirect_to team_url(@round), notice: 'Round was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -46,9 +42,9 @@ class TeamsController < ApplicationController
 
   # DELETE /teams/1
   def destroy
-    @team.destroy
+    @round.destroy
 
-    redirect_to teams_url, notice: 'Team was successfully destroyed.', status: :see_other
+    redirect_to rounds_url, notice: 'Round was successfully destroyed.', status: :see_other
   end
 
   private
@@ -59,11 +55,11 @@ class TeamsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_team
-    @team = Team.find(params[:id])
+    @round = Round.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def team_params
-    params.require(:team).permit(:name, :logo)
+    params.require(:round).permit(:year, :number)
   end
 end

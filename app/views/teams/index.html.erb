@@ -2,6 +2,10 @@
   Teams
   <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
 </h3>
+<%= form_with url: teams_path, method: :get do |form| %>
+  <%= text_field_tag(:search, params[:search])  %>
+  <%= form.submit "Search" %>
+<% end %>
 
 <div id="teams" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
   <% @teams.each do |team| %>

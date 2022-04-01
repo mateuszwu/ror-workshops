@@ -1,0 +1,3 @@
+class Round < ApplicationRecord
+
+end

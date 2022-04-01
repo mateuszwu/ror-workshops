@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_16_112340) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_01_173559) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_112340) do
 
   create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
-    t.string "filename", null: false
+    t.string "filename", null: false 
     t.string "content_type"
     t.text "metadata"
     t.string "service_name", null: false
@@ -37,6 +37,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_112340) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.integer "year"
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -55,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_112340) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.boolean "admin_profile", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -60,10 +60,15 @@ class TeamsController < ApplicationController
   end
 
   def verify_perrmision!
+<<<<<<< HEAD
     if not admin?
       flash[:notice] = 'Missing perrmision'
       redirect_back_or_to root_path 
     end
+=======
+    flash[:notice] = 'Missing perrmision'
+    redirect_back_or_to root_path if not admin?
+>>>>>>> a8fa942faab6c209fbcc3efe27da1a29f299072e
   end
 
 end

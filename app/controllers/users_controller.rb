@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user, only: %i[show edit update my_profile]
+  before_action :autorize_myself?
 
   # GET /users/1
   def show
+    
   end
 
   # GET /users/1/edit
@@ -22,7 +24,8 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
   end
 
   # Only allow a list of trusted parameters through.

@@ -3,6 +3,18 @@
   <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
 </h3>
 
+<div>
+<h2>
+  Search team:
+</h2>
+
+  <%= form_tag(teams_path,method: :get) do %>
+    <%=text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Search")  %>
+  <% end %>
+
+</div>
+
 <div id="teams" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
   <% @teams.each do |team| %>
     <%= render team %>

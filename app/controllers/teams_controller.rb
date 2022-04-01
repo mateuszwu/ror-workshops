@@ -1,9 +1,10 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
-
+  before_action :is_admin?
   # GET /teams
   def index
-    @teams = Team.all
+    #@teams = Team.all
+    @teams = Team.search(params[:search])
   end
 
   # GET /teams/1
@@ -55,6 +56,6 @@ class TeamsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def team_params
-    params.require(:team).permit(:name, :logo)
+    params.require(:team).permit(:name, :logo, :search)
   end
 end

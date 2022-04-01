@@ -2,6 +2,14 @@
   Teams
   <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
 </h3>
+            
+<div id="search" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
+  <%= form_with url: index_search_teams_path, method: :get do |form| %>
+  <%= form.label :query, "Search:" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+  <% end %>
+</div>
 
 <div id="teams" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
   <% @teams.each do |team| %>

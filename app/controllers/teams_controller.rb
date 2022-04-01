@@ -4,8 +4,17 @@ class TeamsController < ApplicationController
 
   # GET /teams
   def index
-    
     @teams = Team.all
+  end
+
+  def index_search
+    
+    if params[:query].blank?
+      redirect_to teams_path, notice: 'Nothing was type in.'
+    else
+      @teams = Team.where("lower(name) LIKE ?", "%#{params[:query]}%")
+      render :index
+    end
   end
 
   # GET /teams/1

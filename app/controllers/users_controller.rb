@@ -7,6 +7,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if not @user.id == current_user.id
+      flash[:notice] = 'Edditing other user not permited'
+      redirect_back_or_to root_path 
+    end
+      
   end
 
   # PATCH/PUT /users/1

@@ -1,8 +1,10 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
+  before_action :check_admin
 
   # GET /teams
   def index
+    
     @teams = Team.all
   end
 
@@ -47,6 +49,12 @@ class TeamsController < ApplicationController
   end
 
   private
+
+  def check_admin
+    if !current_user.admin?
+      redirect_to root_path, notice: "Nie ma masz uprawien"
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_team

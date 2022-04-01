@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   resources :teams
   resources :users, only: %i[show edit update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+
+  # get :home
+
+  get 'home', to: 'home#show'
+
 
   # Defines the root path route ("/")
-  root 'teams#index'
+  root 'home#show'
 end

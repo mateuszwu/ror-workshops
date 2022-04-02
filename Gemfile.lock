@@ -204,6 +204,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actiontext (~> 7.0, >= 7.0.2.3)
   bootsnap
   cssbundling-rails
   debug

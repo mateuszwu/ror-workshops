@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
     end
   end
 
-  # GET /teeams/1
+  # GET /teams/1
   def show
   end
 

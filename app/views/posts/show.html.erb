@@ -1,0 +1,13 @@
+<div class="container">
+  <%= render @post %>
+
+  <%= render "posts/comments", post: @post %>
+
+  <%= link_to "Back to posts", posts_path %>
+
+  <% if current_user.admin_profile? %>
+
+    <%= link_to "Edit this post", edit_post_path(@post) %> |
+    <%= button_to "Delete", post_path(@post), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: "btn btn-outline-danger btn-sm" %>
+  <% end %>
+</div>

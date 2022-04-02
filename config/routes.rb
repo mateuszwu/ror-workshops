@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :teams do
     resources :players
   end
+  resources :posts do
+    resources :comments
+  end
   devise_for :users
   resources :users, only: %i[show edit update]
   resources :rounds

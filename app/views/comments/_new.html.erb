@@ -1,0 +1,6 @@
+<%= form_with model: [post, Comment.new] do |f| %>
+  Your comment: <br/>
+  <%= f.rich_text_area :comment, size: "20x5" %>
+  <%= f.text_field :commenter %>
+  <%= f.submit %>
+<% end %>

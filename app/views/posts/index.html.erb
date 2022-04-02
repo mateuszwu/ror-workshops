@@ -1,0 +1,13 @@
+<h1>Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= post.title %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+<% if current_user.admin_profile? %>
+  <%= link_to "New post", new_post_path %>
+<% end %>

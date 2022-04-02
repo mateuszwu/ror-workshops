@@ -1,0 +1,31 @@
+<%= form_with(model: @post) do |f| %>
+  <% if @post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title, style: "display: block" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content, style: "display: block" %>
+    <%= f.rich_text_area :content %>
+  </div>
+
+  <div>
+    <%= f.number_field :user_id, id: :friend_user_id, class: "form-control", value: current_user.id, type: :hidden %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

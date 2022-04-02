@@ -6,6 +6,10 @@ class TeamsController < ApplicationController
     @teams = Team.all
   end
 
+  def search
+
+  end
+
   # GET /teams/1
   def show
   end

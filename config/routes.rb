@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   namespace :admin do
     resources :teams
+    resources :rounds
     resources :users
   end
 

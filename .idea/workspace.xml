@@ -4,22 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="889ed7b5-94b1-48de-add7-851e44f417f2" name="Changes" comment="Create search by name part">
-      <change afterPath="$PROJECT_DIR$/app/controllers/rounds_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/round.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/rounds/_form.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/rounds/edit.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/rounds/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/rounds/new.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/rounds/show.html.erb" afterDir="false" />
+    <list default="true" id="889ed7b5-94b1-48de-add7-851e44f417f2" name="Changes" comment="Create Rounds functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/teams_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/teams_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/teams/_search.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/teams/_search.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/teams/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/teams/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/rounds/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/rounds/index.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +198,7 @@
       <workItem from="1648844262366" duration="165000" />
       <workItem from="1648844485662" duration="23000" />
       <workItem from="1648844524202" duration="415000" />
-      <workItem from="1648924807030" duration="8432000" />
+      <workItem from="1648924807030" duration="8765000" />
     </task>
     <task id="LOCAL-00001" summary="Create search by name part">
       <created>1648926091058</created>
@@ -220,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648926091058</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create Rounds functionality">
+      <created>1648933413787</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648933413787</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +245,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create search by name part" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create search by name part" />
+    <MESSAGE value="Create Rounds functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Rounds functionality" />
   </component>
 </project>

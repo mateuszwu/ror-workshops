@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="d-flex gap-3 mb-3" >
+    <%= link_to "Back to teams", admin_teams_path, class: "btn btn-secondary" %>
+    <%= link_to "Show this team", admin_team_path(@team), class: "btn btn-secondary" %>
+  </div>
+  <h1>Editing team</h1>
+  <%= form_for @team, as: :team, url: admin_team_path(@team) do |form| %>
+    <% if @team.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+        <ul>
+          <% @team.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+      <%= form.file_field :avatar, class: "form-control" %>
+      <div id="emailHelp" class="form-text">Full team name eg. Arsenal F.C.</div>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= form.submit class:'btn btn-success'%>
+    </div>
+  <% end %>
+</div>
+

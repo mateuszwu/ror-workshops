@@ -1,4 +1,4 @@
-<%= form_with(model: team) do |form| %>
+<%= form_for @team, as: :team, url: admin_teams_path do |form| %>
   <% if team.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>

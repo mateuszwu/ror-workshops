@@ -1,3 +1,4 @@
-<%= form_with url: search_path do |f| %>
-<%= f.text_field :content %>
+<%= form_with url: teams_path, method: :get, local: true do |f| %>
+  <%= f.label :search_phrase, "Search for:" %>
+  <%= f.text_field :search_phrase, id: :search_phrase %>
 <% end %>

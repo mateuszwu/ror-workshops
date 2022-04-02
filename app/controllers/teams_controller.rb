@@ -1,9 +1,13 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
+  before_action :auth_admin
 
   # GET /teams
   def index
-    @teams = Team.all
+    if params[:search_phrase]
+      @teams = Team.where('name LIKE ?', "%#{params[:search_phrase]}%")
+    else @teams = Team.all
+    end
   end
 
   def search
@@ -59,6 +63,6 @@ class TeamsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def team_params
-    params.require(:team).permit(:name, :logo)
+    params.require(:team).permit(:name, :logo, :search_phrase)
   end
 end

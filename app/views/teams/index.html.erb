@@ -5,7 +5,8 @@
 <%= render "search" %>
 
 <div id="teams" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
-  <% @teams.each do |team| %>
+  <% p @teams %>
+  <% @teams&.each do |team| %>
     <%= render team %>
   <% end %>
 </div>

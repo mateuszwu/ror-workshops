@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def auth_user
-    redirect_to root_path, notice: "Unauthorized operation" unless current_user == @user
+    redirect_to root_path, notice: "Unauthorized operation. You can edit only your profile!" unless current_user == @user
   end
 
   # Only allow a list of trusted parameters through.

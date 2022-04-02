@@ -1,4 +1,6 @@
 <%= form_with url: teams_path, method: :get, local: true do |f| %>
-  <%= f.label :search_phrase, "Search for:" %>
-  <%= f.text_field :search_phrase, id: :search_phrase %>
+  <div class="d-flex">
+  <%= f.text_field :search_phrase, id: :search_phrase, placeholder: "Search for team", class: "input-text" %>
+  <%= f.submit :Search, class: "btn btn-primary"%>
+  </div>
 <% end %>

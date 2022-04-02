@@ -2,10 +2,9 @@
   Teams
   <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
 </h3>
-<%= render "search" %>
+<div class="mb-3 mt-3"><%= render "search" %></div>
 
 <div id="teams" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
-  <% p @teams %>
   <% @teams&.each do |team| %>
     <%= render team %>
   <% end %>

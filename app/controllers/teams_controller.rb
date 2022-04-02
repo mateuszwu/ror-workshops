@@ -10,10 +10,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  def search
-
-  end
-
   # GET /teams/1
   def show
   end

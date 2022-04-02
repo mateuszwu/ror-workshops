@@ -1,7 +1,11 @@
 <div class="container">
   <h3>
     Teams
-    <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
+    <% if current_user.admin_profile? %>
+
+      <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
+    <% end %>
+
   </h3>
 
   <div class="form-group mt-4">

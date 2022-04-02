@@ -6,10 +6,44 @@
       <h5 class="card-title"><%= @team.name %></h5>
     </div>
   </div>
+  <% if @team.players.empty? %>
+    <h1 class="text-center">Team has no players.</h1>
+  <% else %>
+    <table class="table table-bordered table-hover">
+      <thead class="table-light">
+      <tr>
+        <th>Player Name</th>
+        <th>Birth Date</th>
+        <% if current_user.admin_profile? %>
+          <th colspan="3"></th>
+        <% else %>
+          <th colspan="1"></th>
+        <% end %>
+      </tr>
+      </thead>
+      <tbody>
+      <% @team.players.each do |player| %>
+        <tr>
+          <td><%= player.player_name %></td>
+          <td><%= player.player_date_of_birth %></td>
+          <% if current_user.admin_profile? %>
+            <td><%= link_to "Edit", edit_team_player_path(player.team, player), class: "btn btn-dark btn-sm" %></td>
+            <td><%= button_to "Delete", [player.team, player], form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: "btn btn-outline-danger btn-sm" %></td>
+            <td class="text-center"><%= link_to "Show", team_player_path(player.team, player), class: "btn btn-secondary btn-sm" %></td>
+        <% else %>
+            <td class="text-center"><%= link_to "Show", team_player_path(player.team, player), class: "btn btn-secondary btn-sm" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <% if current_user.admin_profile? %>
 
+    <div class="d-flex gap-3">
+      <%= link_to "Edit this team", edit_team_path(@team), class: "btn btn-primary" %>
+      <%= link_to "Destroy this team", @team, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete: #{@team.name}" } %>
+    </div>
+  <% end %>
 
-  <div class="d-flex gap-3">
-    <%= link_to "Edit this team", edit_team_path(@team), class: "btn btn-primary"%>
-    <%= link_to "Destroy this team", @team, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete: #{@team.name}" } %>
-  </div>
 </div>

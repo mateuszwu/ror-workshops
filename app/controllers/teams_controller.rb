@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
-  before_action :user_is_admin
+  before_action :user_is_admin, only: %i[new create edit update destroy]
 
   # GET /teams
   def index
@@ -22,6 +22,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
+    @player = @team.players.build
   end
 
   # POST /teams

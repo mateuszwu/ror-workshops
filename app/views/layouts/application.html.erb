@@ -26,17 +26,15 @@
               <li class="nav-item">
                 <%= link_to 'Home', root_path, class: "nav-link active" %>
               </li>
-              <li class="nav-item">
-                <%= link_to 'Rounds', rounds_path, class: "nav-link" %>
-              </li>
               <% if current_user.present? %>
-                <% if current_user.admin_profile? %>
+                <%# if current_user.admin_profile? %>
                   <li class="nav-item">
                     <%= link_to 'Teams', teams_path, class: "nav-link" %>
                   </li>
-                <% end %>
-              <% end %>
-              <% if current_user.present? %>
+                <%# end %>
+                <li class="nav-item">
+                  <%= link_to 'Rounds', rounds_path, class: "nav-link" %>
+                </li>
                 <li class="nav-item">
                   <%= user_link(current_user) %>
                 </li>

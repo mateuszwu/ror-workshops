@@ -1,19 +1,25 @@
-<%= form_for([@player.team, @player]) do |f| %>
+<div class="container text-center w-50 mt-5">
+  <div class="card">
+    <div class="card-body">
+      <%= form_for([@player.team, @player]) do |f| %>
 <%# if @player.errors.any? %>
-  <!--    <div id="error_explanation">-->
-  <!--      <h2><%#= pluralize(@player.errors.count, "error") %> prohibited this task from being saved:</h2>-->
-  <!--      <ul>-->
-  <%# @player.errors.full_messages.each do |msg| %>
-  <!--          <li><%#= msg %></li>-->
-  <%# end %>
-  <!--      </ul>-->
-  <!--    </div>-->
+        <!--    <div id="error_explanation">-->
+        <!--      <h2><%#= pluralize(@player.errors.count, "error") %> prohibited this task from being saved:</h2>-->
+        <!--      <ul>-->
+        <%# @player.errors.full_messages.each do |msg| %>
+        <!--          <li><%#= msg %></li>-->
+        <%# end %>
+        <!--      </ul>-->
+        <!--    </div>-->
 <%# end %>
-  <div class="form-group row mb-5">
-
-    <div class="col"><%= f.text_field :player_name, class: "form-control", placeholder: "Enter player name" %></div>
-    <div class="col"><%= f.date_select :player_date_of_birth, :order => [:day, :month, :year], class: "form-control", :start_year => Date.current.year, start_year: 1950, :end_year => Date.current.year %></div>
-    <div class="col"><%= f.file_field :photo, class: "form-control" %></div>
-    <div class="col">  <%= f.submit %></div>
+        <div class="form-group mx-auto row row-cols-1 ">
+          <div class="col my-2"><%= player_photo(@player) %></div>
+          <div class="col my-2"><%= f.text_field :player_name, class: "form-control", placeholder: "Enter player name" %></div>
+          <div class="col my-2"><%= f.date_select :player_date_of_birth, :order => [:day, :month, :year], class: "form-control", :start_year => Date.current.year, start_year: 1950, :end_year => Date.current.year %></div>
+          <div class="col my-2"><%= f.file_field :photo, class: "form-control" %></div>
+          <div class="col my-3"><%= f.submit class:'btn btn-primary'%></div>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

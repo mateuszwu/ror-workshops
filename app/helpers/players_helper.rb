@@ -3,9 +3,9 @@ module PlayersHelper
     photo_url = if player.photo.attached?
                   player.photo
                else
-                 'blank-team-logo.png'
+                 'default.jpg'
                end
 
-    image_tag photo_url, style: 'height: 200px;', class: 'card-img-top img-fluid img-thumbnail'
+    image_tag photo_url, style: 'height: 200px; width: 200px;', class: 'card-img-top img-fluid img-thumbnail'
   end
 end

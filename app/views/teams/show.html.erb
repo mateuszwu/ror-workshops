@@ -1,15 +1,14 @@
-<div class="container">
-  <%= link_to "Back to teams", teams_path, class: "btn btn-secondary mb-3" %>
-  <div class="card mb-3" style="width: 18rem;" id="<%= dom_id @team %>">
+<div class="container text-center">
+  <div class="card mx-auto my-5" style="width: 18rem;" id="<%= dom_id @team %>">
     <%= team_logo(@team) %>
     <div class="card-body">
       <h5 class="card-title"><%= @team.name %></h5>
     </div>
   </div>
   <% if @team.players.empty? %>
-    <h1 class="text-center">Team has no players.</h1>
+    <h1>Team has no players.</h1>
   <% else %>
-    <table class="table table-bordered table-hover">
+    <table class="table w-75 mx-auto table-bordered table-hover mb-5">
       <thead class="table-light">
       <tr>
         <th>Player Name</th>
@@ -29,9 +28,9 @@
           <% if current_user.admin_profile? %>
             <td><%= link_to "Edit", edit_team_player_path(player.team, player), class: "btn btn-dark btn-sm" %></td>
             <td><%= button_to "Delete", [player.team, player], form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: "btn btn-outline-danger btn-sm" %></td>
-            <td class="text-center"><%= link_to "Show", team_player_path(player.team, player), class: "btn btn-secondary btn-sm" %></td>
+            <td><%= link_to "Show", team_player_path(player.team, player), class: "btn btn-secondary btn-sm" %></td>
         <% else %>
-            <td class="text-center"><%= link_to "Show", team_player_path(player.team, player), class: "btn btn-secondary btn-sm" %></td>
+            <td><%= link_to "Show", team_player_path(player.team, player), class: "btn btn-secondary btn-sm" %></td>
           <% end %>
         </tr>
       <% end %>
@@ -40,7 +39,8 @@
   <% end %>
   <% if current_user.admin_profile? %>
 
-    <div class="d-flex gap-3">
+    <div class="mx-auto gap-3">
+      <%= link_to "Back to teams", teams_path, class: "btn btn-secondary" %>
       <%= link_to "Edit this team", edit_team_path(@team), class: "btn btn-primary" %>
       <%= link_to "Destroy this team", @team, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete: #{@team.name}" } %>
     </div>

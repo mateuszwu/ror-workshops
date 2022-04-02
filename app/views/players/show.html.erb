@@ -1,2 +1,12 @@
-<%= @player.player_name %>
-<%= player_photo(@player) %>
+<div class="container text-center mt-5">
+  <div class="card mx-auto" style="width: 18rem;" id="<%= dom_id @player %>">
+    <div class="card-header"><%= player_photo(@player) %></div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @player.player_name %></h5>
+      <h5 class="card-title"><%= @player.player_date_of_birth %></h5>
+    </div>
+    <div class="card-footer">
+      <%= link_to "Back", team_path(@team), class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>

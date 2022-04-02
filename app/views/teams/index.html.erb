@@ -1,14 +1,8 @@
-<div class="container">
-  <h3>
-    Teams
-    <% if current_user.admin_profile? %>
+<div class="container text-center">
 
-      <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
-    <% end %>
+  <h3>Teams</h3>
 
-  </h3>
-
-  <div class="form-group mt-4">
+  <div class="form-groupmt-4">
     <%= form_with url: teams_path, method: :get do |form| %>
       <%= text_field_tag(:search, params[:search]) %>
       <%= form.submit "Search", class: "btn btn-primary" %>
@@ -20,4 +14,7 @@
       <%= render team %>
     <% end %>
   </div>
+  <% if current_user.admin_profile? %>
+    <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary mt-4" %></small>
+  <% end %>
 </div>

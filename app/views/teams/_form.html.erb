@@ -11,20 +11,24 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
+  <div class="card text-center w-50 mx-auto">
     <% if team.logo.attached? %>
-      <div>
-        <%= image_tag team.logo, alt: "Team #{team.name} logo" %>
+      <div class="mx-auto">
+        <%= image_tag team.logo, style: "width: 200px; height: 200px;", alt: "Team #{team.name} logo" %>
       </div>
     <% end %>
-    <%= form.label :logo, class: "form-label" %>
-    <%= form.file_field :logo, class: "form-control" %>
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control" %>
-    <div id="emailHelp" class="form-text">Full team name eg. Arsenal F.C.</div>
+    <div class="card-body">
+      <%= form.label :logo, class: "form-label" %>
+      <%= form.file_field :logo, class: "form-control" %>
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+      <div id="emailHelp" class="form-text">Full team name eg. Arsenal F.C.</div>
+    </div>
+    <div class="card-footer">
+      <div class="form-group mb-3">
+        <%= form.submit class: 'btn btn-success' %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group mb-3">
-    <%= form.submit class:'btn btn-success'%>
-  </div>
 <% end %>

@@ -1,10 +1,19 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
+  before_action :is_admin
 
   # GET /teams
   def index
+   if params["query"]
+    
+    @teams = Team.where(name: params["query"])
+   else
     @teams = Team.all
+   end
+
+   
   end
+  
 
   # GET /teams/1
   def show
@@ -51,6 +60,13 @@ class TeamsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_team
     @team = Team.find(params[:id])
+  end
+
+  def is_admin
+      if current_user.role == false
+      redirect_to root_path, notice:'Acces denied!'
+      end
+    
   end
 
   # Only allow a list of trusted parameters through.

@@ -1,0 +1,31 @@
+<h1>Listing Rounds</h1>
+<% if current_user.role? %>
+    <small class="text-muted"><%= link_to "New Round", new_round_path, class: "btn btn-primary" %></small>
+<%end%>
+<table class="table table-striped table-hover mt-2">
+  <thead class="bg-primary text-white">
+    <tr>
+      <th scope="col">Number</th>
+      <th scope="col">Year</th>
+      <th scope="col" colspan="3" class="mx-auto" >Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rounds.each do |round| %>
+      <tr>
+        <td><%= round.number %></td>
+        <td><%= round.year %></td>
+        
+        <td><%= link_to "Show", round, class:"btn btn-secondary btn-sm"%></td>
+        <% if current_user.role? %>
+        <td><%= link_to "Edit", edit_round_path(round), class:"btn btn-dark btn-sm"  %></td>
+        <td><%= link_to "Destroy", round, class:"btn btn-warning btn-sm" , data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+</div>

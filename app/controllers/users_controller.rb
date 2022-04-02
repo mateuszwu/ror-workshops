@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
+  before_action :current_user_access
 
   # GET /users/1
   def show
@@ -25,6 +26,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def current_user_access
+      if current_user.id.to_s != params["id"]
+        redirect_to root_path, notice:'Acces denied!'
+      end
+  end
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:avatar, :first_name, :last_name)

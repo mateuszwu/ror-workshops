@@ -1,9 +1,21 @@
-<h3>
-  Teams
-  <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
-</h3>
+
+  <h3>Teams</h3>
+
+  <div class="d-flex flex-row justify-content-between pb-3">
+    <small class="text-muted"><%= link_to "New team", new_team_path, class: "btn btn-primary" %></small>
+
+    <%= form_with url: '/teams', method: :get do |form|%>
+    <%= form.label :query, "Search for:" %>
+    <%= text_field_tag(:query,params[:query]) %>
+    <%= form.submit "Search" %>
+    <% end %>
+  </div>
+
 
 <div id="teams" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
+
+
+
   <% @teams.each do |team| %>
     <%= render team %>
   <% end %>

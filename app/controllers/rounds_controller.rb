@@ -1,12 +1,11 @@
 class RoundsController < ApplicationController
   before_action :set_round, only: [:show, :edit, :update, :destroy]
-  before_action :auth_admin, only: [:new, :edit, :destroy]
   def index
     @rounds = Round.all
   end
 
   def new
-    @round = Round.new
+    @round = authorize Round.new
   end
 
   def create

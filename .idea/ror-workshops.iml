@@ -71,6 +71,7 @@
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.13.3, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v5.6.2, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pundit (v2.2.0, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.6.0, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, rbenv: 3.1.1) [gem]" level="application" />
@@ -123,9 +124,12 @@
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
+        <option value="pundit:install" />
+        <option value="pundit:policy" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
+        <option value="rspec:policy" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
         <option value="stimulus" />
@@ -142,6 +146,7 @@
         <option value="test_unit:mailer" />
         <option value="test_unit:model" />
         <option value="test_unit:plugin" />
+        <option value="test_unit:policy" />
         <option value="test_unit:scaffold" />
         <option value="test_unit:system" />
       </list>
@@ -169,9 +174,12 @@
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
+        <option value="pundit:install" />
+        <option value="pundit:policy" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
+        <option value="rspec:policy" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
         <option value="stimulus" />
@@ -188,6 +196,7 @@
         <option value="test_unit:mailer" />
         <option value="test_unit:model" />
         <option value="test_unit:plugin" />
+        <option value="test_unit:policy" />
         <option value="test_unit:scaffold" />
         <option value="test_unit:system" />
       </list>

@@ -1,5 +1,5 @@
 <h1>Scheduled rounds</h1>
-<% if current_user.is_admin? %>
+<% if current_user.admin? %>
 <%= link_to "Create new round", new_round_path, class: "btn btn-primary float-right mb-3" %>
 <% end %>
 <% @rounds.each do |round| %>

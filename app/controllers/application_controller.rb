@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
   before_action :authenticate_user!
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   private
 
-  def auth_admin
-    redirect_to root_path, notice: "Only admin can manage teams" unless current_user&.is_admin?
+  def user_not_authorized
+    redirect_to (request.referrer || root_path), notice: "You are not authorized to perform this action."
   end
-
 end

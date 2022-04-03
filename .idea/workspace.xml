@@ -4,9 +4,25 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="889ed7b5-94b1-48de-add7-851e44f417f2" name="Changes" comment="Create Rounds functionality">
+    <list default="true" id="889ed7b5-94b1-48de-add7-851e44f417f2" name="Changes" comment="Remove button create round from users sight">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/policies/round_policy.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/policies/team_policy.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/policies/user_policy.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ror-workshops.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ror-workshops.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/rounds_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/rounds_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/teams_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/teams_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/round.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/round.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/rounds/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/rounds/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/teams/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/teams/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +43,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -198,7 +221,8 @@
       <workItem from="1648844262366" duration="165000" />
       <workItem from="1648844485662" duration="23000" />
       <workItem from="1648844524202" duration="415000" />
-      <workItem from="1648924807030" duration="8765000" />
+      <workItem from="1648924807030" duration="19896000" />
+      <workItem from="1649010939464" duration="5791000" />
     </task>
     <task id="LOCAL-00001" summary="Create search by name part">
       <created>1648926091058</created>
@@ -214,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648933413787</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Remove button create round from users sight">
+      <created>1648933684477</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1648933684477</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +277,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create search by name part" />
     <MESSAGE value="Create Rounds functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Rounds functionality" />
+    <MESSAGE value="Remove button create round from users sight" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove button create round from users sight" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ror_workshops@Development__ror_workshops.rcov" NAME="Development: ror-workshops Coverage Results" MODIFIED="1649010946106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ror-workshops" />
   </component>
 </project>

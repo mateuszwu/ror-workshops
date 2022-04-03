@@ -1,13 +1,14 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
-  before_action :auth_admin
 
   # GET /teams
   def index
     if params[:search_phrase]
       @teams = Team.where('name LIKE ?', "%#{params[:search_phrase]}%")
-    else @teams = Team.all
+    else
+      @teams = Team.all
     end
+    authorize @teams
   end
 
   # GET /teams/1
@@ -16,7 +17,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @team = Team.new
+    @team = authorize Team.new
   end
 
   # GET /teams/1/edit
@@ -25,7 +26,7 @@ class TeamsController < ApplicationController
 
   # POST /teams
   def create
-    @team = Team.new(team_params)
+    @team = authorize Team.new(team_params)
 
     if @team.save
       redirect_to team_url(@team), notice: 'Team was successfully created.'
@@ -55,6 +56,7 @@ class TeamsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_team
     @team = Team.find(params[:id])
+    authorize @team
   end
 
   # Only allow a list of trusted parameters through.

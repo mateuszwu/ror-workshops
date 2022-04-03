@@ -1,6 +1,7 @@
 class RoundsController < ApplicationController
   before_action :set_round, only: %i[edit update destroy]
-  before_action :is_admin?, except: %i[index show]
+  # before_action :is_admin?, except: %i[index show]
+  #before_action :ensure_user_is_admin, except: %i[index show]
 
 
   def index
@@ -13,11 +14,14 @@ class RoundsController < ApplicationController
 
   def new
     @round = Round.new
+    authorize @round
   end
 
   def create
     if Round.where(number: round_params[:number].to_i, year: round_params[:year].to_i).count == 0
       @round = Round.new(round_params)
+      authorize @round
+
       if @round.save
         redirect_to rounds_path, notice: "Round was successfully created."
       else
@@ -30,6 +34,7 @@ class RoundsController < ApplicationController
 
   def edit
     @round = Round.find(params[:id])
+    authorize @round
   end
 
   def update
@@ -42,6 +47,7 @@ class RoundsController < ApplicationController
 
   def destroy
     @round = Round.find(params[:id])
+    authorize @round
     @round.destroy
     redirect_to rounds_url
   end

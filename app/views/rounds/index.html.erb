@@ -1,7 +1,7 @@
 <h3>
   Rounds
   <small class="text-muted">
-    <%if current_user.is_admin %>
+    <%if current_user.admin? %>
     <%= link_to "New round", new_round_path, class: "btn btn-primary" %>
     <% end %>
   </small>

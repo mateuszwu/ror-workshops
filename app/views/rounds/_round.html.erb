@@ -6,7 +6,7 @@
     <th scope="col">
       <%= "rok: #{round.year}" %>
     </th>
-    <%if current_user.is_admin %>
+    <%if current_user.admin? %>
   <th scope="col">
     <%= link_to "Del", round,class: "btn btn-danger", method: :delete,  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this round?" }  %>
     </th>

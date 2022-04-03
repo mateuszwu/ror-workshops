@@ -1,7 +1,12 @@
-<h2>Comments</h2>
-
-<div id="comments">
-  <%= render post.comments %>
+<div class="mt-5 w-75 mx-auto">
+  <%= render "comments/new", post: post %>
+</div>
+<div class="card mt-5 w-50 mx-auto">
+  <div class="card-header text-center h4">
+    Comments
+  </div>
+  <div id="comments" class="text-left p y-2">
+    <%= render post.comments %>
+  </div>
 </div>
 
-<%= render "comments/new", post: post %>

@@ -1,18 +1,14 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
-  <p>
-    Posted: <%= time_tag post.created_at, "data-local": "time-ago" %>
-  </p>
-  <p>
-    <strong>Content:</strong>
+<div class="card mt-5">
+  <div class="card-header">
+    <div class="card-title text-center h2">
+      <%= post.title %>
+    </div>
+  </div>
+  <div class="card-body h6">
     <%= post.content %>
-  </p>
-  <p>
-    <strong>Created by:</strong>
-    <%= link_to post.user.email, user_path(post.user.id) %>
-  </p>
+  </div>
+  <div class="card-footer d-flex justify-content-between mt-4">
+    <div class="mt-3"><%= time_tag post.created_at %></div>
+    <div class="mt-3"><p>Created by: <%= link_to post.user.email, user_path(post.user.id) %></p></div>
+  </div>
 </div>
-

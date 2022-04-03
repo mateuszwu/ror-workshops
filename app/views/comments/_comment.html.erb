@@ -1,3 +1,7 @@
+<p>
   <%= comment.comment %>
-  <strong>Created by:</strong>
-  <%=  link_to comment.user.email, user_path(comment.user.id) %>
+</p>
+<p class="text-right">by:
+  <%= link_to comment.user.email, user_path(comment.user.id) %>
+</p>
+<hr>

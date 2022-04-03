@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fa6c458-1ff4-4e5e-b22f-4d45096830b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/_base.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/post_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/comment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/comment.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.bootstrap.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/comments/_comment.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/_comment.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/comments/_new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/_new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/posts/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/posts/_comments.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/_comments.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/posts/_post.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/_post.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/posts/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/posts/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +233,7 @@
       <workItem from="1648886014631" duration="17180000" />
       <workItem from="1648920689181" duration="9853000" />
       <workItem from="1648968945226" duration="1030000" />
-      <workItem from="1648969976985" duration="7177000" />
+      <workItem from="1648969976985" duration="13658000" />
     </task>
     <servers />
   </component>

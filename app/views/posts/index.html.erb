@@ -1,13 +1,20 @@
-<h1>Posts</h1>
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= post.title %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+<div class="container">
+  <div class="card m-5">
+    <div class="card-header text-center">
+      <h3>News</h3>
+    </div>
+    <div class="card-body text-left">
+      <% @posts.each do |post| %>
+        <%= link_to post, class: "text-decoration-none" do %>
+          <div class="card project-card mb-2 text-secondary ">
+            <div class="card-body">
+              <h4 class="card-title text-dark fw-b"><%= post.title.truncate(50) %></h4>
+              <p class="mr-3"><%= post.content.to_plain_text.truncate(280) %></p>
+              <p class="pt-2 text-success"><strong><%= pluralize post.comments.count, "comment" %></strong></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% if current_user.admin_profile? %>
-  <%= link_to "New post", new_post_path %>
-<% end %>

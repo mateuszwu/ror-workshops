@@ -1,0 +1,7 @@
+.project-card {
+    transition: background-color 0.5s ease;
+}
+
+.project-card:hover {
+    background-color: #999999;
+}

@@ -1,4 +1,8 @@
-class TeamsController < ApplicationController
+class RoundsController < ApplicationController
+  before_action :set_round, only: %i[edit update destroy]
+  before_action :is_admin?, except: %i[index show]
+
+
   def index
     @rounds = Round.all
   end
@@ -7,41 +11,48 @@ class TeamsController < ApplicationController
     @round = Round.find(params[:id])
   end
 
-
   def new
     @round = Round.new
   end
 
-
   def create
-    @round = Team.new(params[:team])
-    if @round.save
-      redirect_to @round
+    if Round.where(number: round_params[:number].to_i, year: round_params[:year].to_i).count == 0
+      @round = Round.new(round_params)
+      if @round.save
+        redirect_to rounds_path, notice: "Round was successfully created."
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      render :action => 'new'
+      redirect_back(fallback_location: root_path , notice: 'Round was not created.')
     end
   end
-
 
   def edit
-    @round = Team.find(params[:id])
+    @round = Round.find(params[:id])
   end
-
 
   def update
-    @round = Team.find(params[:id])
-    if @round.update_attributes(params[:team])
-      redirect_to @round
+    if Round.where(number: round_params[:number].to_i, year: round_params[:year].to_i).count == 0 && @round.update(round_params)
+      redirect_to rounds_path, notice: 'Round was successfully updated.'
     else
-      render :action => 'edit'
+      redirect_back(fallback_location: root_path , notice: 'Round was not updated.')
     end
   end
-
 
   def destroy
     @round = Round.find(params[:id])
     @round.destroy
     redirect_to rounds_url
+  end
+  private
+
+  def round_params
+    params.require(:round).permit(:number, :year)
+  end
+
+  def set_round
+    @round = Round.find(params[:id])
   end
 
 end

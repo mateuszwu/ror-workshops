@@ -1,0 +1,40 @@
+<table class="table" style="width: 18rem;">
+  <thead class="thead-light">
+    <th scope="col">
+      <%= "numer: #{round.number}" %>
+    </th>
+    <th scope="col">
+      <%= "rok: #{round.year}" %>
+    </th>
+    <%if current_user.is_admin %>
+  <th scope="col">
+    <%= link_to "Del", round,class: "btn btn-danger", method: :delete,  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this round?" }  %>
+    </th>
+    <th scope="col">
+    <%= link_to "Edit", edit_round_path(round), class: "btn btn-primary"%>
+    </th>
+    <%end%>
+  </thead>
+
+<!--  prawdopodobne wypisywanie meczów w kolejce?-->
+<!--  <tbody>-->
+    <%# round.matches.each do |match| %>
+<!--      <tr>-->
+<!--        <td>-->
+          <%#= match.home_team.name %>
+<!--        </td>-->
+<!--        <td>-->
+          <%#= match.away_team.name %>
+<!--        </td>-->
+<!--        <td>-->
+          <%#= match.home_team_score %>
+<!--        </td>-->
+<!--        <td>-->
+          <%#= match.away_team_score %>
+<!--        </td>-->
+<!--      </tr>-->
+    <%# end %>
+<!--  </tbody>-->
+
+
+</table>

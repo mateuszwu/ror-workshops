@@ -4,11 +4,15 @@
       <%= user_avatar(@user) %>
       <h5 class="card-title"><%= @user.email %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= @user.full_name %></h6>
+      <h6 class="card-subtitle mb-2 text-muted">User Posts : <%= Post.where(user_id: @user.id).count%></h6>
+      <h6 class="card-subtitle mb-2 text-muted">User Comments : <%= Comment.where(user_id: @user.id).count%></h6>
+
     </div>
   </div>
 
-
-  <div class="d-flex gap-3">
-    <%= link_to "Edit this user", edit_user_path(@user), class: "btn btn-primary"%>
-  </div>
+  <% if current_user == @user %>
+    <div class="d-flex gap-3">
+      <%= link_to "Edit this user", edit_user_path(@user), class: "btn btn-primary" %>
+    </div>
+  <% end %>
 </div>

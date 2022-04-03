@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
   before_action :auth_user
-
+  skip_before_action :auth_user, only: [:show]
   # GET /users/1
   def show
   end

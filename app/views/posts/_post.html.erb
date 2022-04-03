@@ -10,4 +10,9 @@
     <strong>Content:</strong>
     <%= post.content %>
   </p>
+  <p>
+    <strong>Created by:</strong>
+    <%= link_to post.user.email, user_path(post.user.id) %>
+  </p>
 </div>
+

@@ -37,8 +37,8 @@
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <div class="card mb-2" style="width: 4rem;">
-              <%= image_tag current_user.user_avatar, class: "card-img-top" %>
+            <div class="card mb-2" style="width: 5rem;">
+              <%= view_avatar %>
             </div>
           </li>
           <li class="nav-item">

@@ -25,7 +25,7 @@ module Admin
       @round = Round.new(round_params)
 
       if @round.save
-        redirect_to admin_round_url(@round), notice: 'Team was successfully created.'
+        redirect_to admin_round_url(@round), notice: 'Round was successfully created.'
       else
         render :new, status: :unprocessable_entity
       end
@@ -34,7 +34,7 @@ module Admin
     # PATCH/PUT /teams/1
     def update
       if @round.update(round_params)
-        redirect_to admin_round_url(@round), notice: 'Team was successfully updated.'
+        redirect_to admin_round_url(@round), notice: 'Round was successfully updated.'
       else
         render :edit, status: :unprocessable_entity
       end
@@ -44,7 +44,7 @@ module Admin
     def destroy
       @round.destroy
 
-      redirect_to admin_rounds_url, notice: 'Team was successfully destroyed.', status: :see_other
+      redirect_to admin_rounds_url, notice: 'Round was successfully destroyed.', status: :see_other
     end
 
     private

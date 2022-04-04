@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: %i[index, show]
+  before_action :set_team, only: %i[show]
 
   # GET /teams
   def index

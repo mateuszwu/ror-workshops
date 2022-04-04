@@ -18,6 +18,8 @@
     <% @matches.each do |match| %>
       <li class = "list-group-item">
       <%= match.date %>
+      <%= match.home_team.name %>
+      <%= match.away_team.name %>
       <%= link_to "Edit this match", edit_round_match_path(@round, match), class: "btn btn-primary"%>
       </li>
     <% end %>

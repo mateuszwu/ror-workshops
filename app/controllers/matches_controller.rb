@@ -36,7 +36,7 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:date)
+    params.require(:match).permit(:date, :home_team_id, :away_team_id)
   end
 
     

@@ -1,0 +1,33 @@
+<%= form_with(model: [round , match]) do |form| %>
+  <% if match.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(match.errors.count, "error") %> prohibited this round from being saved:</h2>
+
+      <ul>
+        <% match.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :date, class: 'form-label' %>
+    <%= form.date_field :date, class: "form-control" %>
+  </div>
+
+
+  <div class="mb-3">
+    <%= form.label :team_home, class: 'form-label' %>
+    <%= form.select :team_home, Team.pluck(:name,:id),class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :team_away, class: 'form-label' %>
+    <%= form.select :team_away, Team.pluck(:name,:id),class: "form-control" %>
+  </div>
+
+
+  <div class="form-group mb-3">
+    <%= form.submit class:'btn btn-success'%>
+  </div>
+<% end %>

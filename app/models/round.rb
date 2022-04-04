@@ -1,4 +1,5 @@
 class Round < ApplicationRecord
+  has_many :matches
   validates :number, presence: true
   validates :year, comparison: {
     greater_than_or_equal_to: Date.today.year,

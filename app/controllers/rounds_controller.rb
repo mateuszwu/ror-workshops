@@ -1,7 +1,6 @@
 class RoundsController < ApplicationController
   before_action :check_if_user_is_admin
   before_action :set_round, only: %i[show edit update destroy]
-
   # GET /rounds
   def index
     @rounds = Round.all
@@ -9,6 +8,7 @@ class RoundsController < ApplicationController
 
   # GET /rounds/1
   def show
+    @matches = @round.matches
   end
 
   # GET /rounds/new

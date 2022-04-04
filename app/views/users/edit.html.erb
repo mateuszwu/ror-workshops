@@ -1,0 +1,28 @@
+<%= form_with(model: @user) do |form| %>
+  <% if @user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <div class="card mb-3" style="width: 50rem;">
+      <%= view_avatar(@user) %>
+    </div>
+    <%= form.label :first_name, class: 'form-label' %>
+    <%= form.text_field :first_name, class: "form-control" %>
+    <%= form.label :last_name, class: 'form-label' %>
+    <%= form.text_field :last_name, class: "form-control" %>
+    <%= form.label :avatar, class: 'form-label' %>
+    <%= form.file_field :avatar, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.submit class:'btn btn-success'%>
+  </div>
+<% end %>

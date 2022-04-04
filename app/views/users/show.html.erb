@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="card mb-3" style="width: 52rem;" id="<%= dom_id @user %>">
+    <div class="card-body">
+      <div class="card mb-3" style="width: 50rem;">
+        <%= view_avatar(@user) %>
+      </div>
+      <h2>
+        <%= @user.email %><br>
+        <%= @user.first_name %><br>
+        <%= @user.last_name %>
+      </h2>
+    </div>
+  </div>
+
+  <div class="d-flex gap-3">
+    <%= link_to "Edit this user", edit_user_path(@user), class: "btn btn-primary" %>
+  </div>
+</div>

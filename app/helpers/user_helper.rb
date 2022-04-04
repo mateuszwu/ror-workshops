@@ -1,7 +1,7 @@
 module UserHelper
-  def view_avatar
-    if current_user.user_avatar.attached?
-      image_tag current_user.user_avatar
+  def view_avatar(current_user)
+    if current_user.avatar.attached?
+      image_tag current_user.avatar
     end
   end
 end

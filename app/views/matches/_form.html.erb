@@ -1,8 +1,8 @@
 <%= form_with(model: [@round, match]) do |form| %>
   <%= form.date_select :match_date %>
   <%= form.label :home_team_id %>
-  <%= form.text_field :home_team_id %>
+  <%= form.select :home_team_id, Team.pluck(:name, :id)  %>
   <%= form.label :away_team_id %>
-  <%= form.text_field :away_team_id %>
+  <%= form.select :away_team_id, Team.pluck(:name, :id) %>
   <%= form.submit %>
 <% end %>

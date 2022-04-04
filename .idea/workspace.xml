@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fa6c458-1ff4-4e5e-b22f-4d45096830b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/matches_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/match.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/matches/_form.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/matches/edit.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/matches/new.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20220404150001_create_matches.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/rounds_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/rounds_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/round.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/round.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/team.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/team.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/match.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/match.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/matches/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/matches/_form.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/rounds/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/rounds/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +218,7 @@
       <workItem from="1649055699664" duration="524000" />
       <workItem from="1649067443238" duration="5000" />
       <workItem from="1649081066130" duration="606000" />
-      <workItem from="1649081979131" duration="9854000" />
+      <workItem from="1649081979131" duration="10578000" />
     </task>
     <servers />
   </component>

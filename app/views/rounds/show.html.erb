@@ -10,8 +10,8 @@
     <ol>
       <li>
         <%= match.match_date %>
-        <%= Team.find(match.home_team_id).name %>
-        <%#= Team.find(match.away_team_id).name %>
+        <%= match.home_team.name %>
+        <%= match.away_team.name %>
         <%= link_to "edit", edit_round_match_path(match.round, match) %><br/>
       </li>
     </ol>

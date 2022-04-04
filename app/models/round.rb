@@ -7,6 +7,8 @@ class Round < ApplicationRecord
   validate :number_year_uniqueness
   # alternative solution
   # validates :number, uniqueness: { scope: :year, message: 'number/year pair has to be unique' }
+  has_many :matches
+
 
   def number_year_uniqueness
     round = Round.find_by(year: self.year, number: self.number)

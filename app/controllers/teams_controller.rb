@@ -1,9 +1,19 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[show edit update destroy]
+  before_action :checkpermission
+
+  
 
   # GET /teams
   def index
+
+    if params[:query].present?
+    @teams = Team.where("name = ?", params[:query])
+    else
     @teams = Team.all
+    end
+
+
   end
 
   # GET /teams/1
@@ -47,6 +57,11 @@ class TeamsController < ApplicationController
   end
 
   private
+
+  def checkpermission 
+    redirect_to root_path, notice:"Brak dostepu" unless current_user.is_admin?
+
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_team

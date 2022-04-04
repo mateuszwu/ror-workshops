@@ -40,7 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_150615) do
   end
 
   create_table "matches", force: :cascade do |t|
-    t.integer "round_id"
+    t.integer "round_id", null: false
+    t.date "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["round_id"], name: "index_matches_on_round_id"

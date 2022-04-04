@@ -1,5 +1,5 @@
-class Round < ApplicationRecord
-    belongs_to: round
-  
+class Match < ApplicationRecord
+    belongs_to :round
+    validates :date, presence: true
   end
   

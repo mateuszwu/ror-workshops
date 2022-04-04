@@ -1,0 +1,11 @@
+<h3>
+  Rounds
+  <small class="text-muted"><%= link_to "New round", new_round_path, class: "btn btn-primary" %></small>
+</h3>
+
+
+<div id="rounds" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
+  <% @rounds.each do |round| %>
+    <%= render round %>
+  <% end %>
+</div>

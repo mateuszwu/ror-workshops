@@ -34,11 +34,8 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
 
-    if @team.save
+     @team.save
       redirect_to team_url(@team), notice: 'Team was successfully created.'
-    else
-      render :new, status: :unprocessable_entity
-    end
   end
 
   # PATCH/PUT /teams/1

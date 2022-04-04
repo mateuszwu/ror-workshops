@@ -1,0 +1,14 @@
+<div class="container">
+<%= link_to "Back to rounds", rounds_path, class: "btn btn-secondary mb-3" %>
+  <div class="card mb-3" style="width: 18rem;" id="<%= dom_id @round %>">
+    <div class="card-body">
+      <h5 class="card-title"><%= @round.year %>/<%= @round.number %></h5>
+    </div>
+  </div>
+
+  <div class="d-flex gap-3">
+    <%= link_to "Edit this round", edit_round_path(@round), class: "btn btn-primary"%>
+    <%= link_to "Destroy this round", @round, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete: #{@round.year}/#{@round.number}" } %>
+    <%= link_to "Add match", new_round_match_path(@round), class: "btn btn-primary"%>
+  </div>
+</div>

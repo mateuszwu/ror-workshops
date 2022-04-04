@@ -9,6 +9,7 @@ class RoundsController < ApplicationController
 
   # GET /rounds/1
   def show
+    @matches = Match.all
   end
 
   # GET /rounds/new

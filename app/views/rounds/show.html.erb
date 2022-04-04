@@ -13,6 +13,16 @@
     <%= link_to "Add new match", new_round_match_path(@round), class: "btn btn-primary"%>
   </div>
 
+  <div id="matches" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
+    <ol class = "list-group">
+    <% @matches.each do |match| %>
+      <li class = "list-group-item">
+      <%= match.date %>
+      <%= link_to "Edit this match", edit_round_match_path(@round, match), class: "btn btn-primary"%>
+      </li>
+    <% end %>
+    </ol>
+  </div>
 
 
   

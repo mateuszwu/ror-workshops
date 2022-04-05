@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :require_admin_role
+  before_action :require_admin_role, only:[:edit, :update, :new]
   before_action :set_round, only: %i[new create show edit update destroy]
   before_action :set_match, only: %i[show edit update destroy]
 
@@ -12,6 +12,9 @@ class MatchesController < ApplicationController
   # GET /rounds/1/matches/1/edit
   def edit
     @teams = options_for_team_select
+    if Date.today <= @match.match_date
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   # POST /rounds/1/matches

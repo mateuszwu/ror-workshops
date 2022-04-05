@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
+  has_many :bets
+  has_many :matches, through: :bets
 
   def full_name
     "#{first_name} #{last_name}"

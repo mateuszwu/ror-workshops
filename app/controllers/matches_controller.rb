@@ -28,7 +28,8 @@ class MatchesController < ApplicationController
 
   # PATCH/PUT /rounds/1/matches/1
   def update
-    if @match.update(match_params)
+
+    if Date.current>=match.match_date && @match.update(match_params)
       redirect_to @round, notice: 'Match was successfully updated.'
     else
       @teams = options_for_team_select

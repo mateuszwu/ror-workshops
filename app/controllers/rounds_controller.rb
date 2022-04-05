@@ -1,5 +1,5 @@
 class RoundsController < ApplicationController
-  before_action :require_admin_role
+  before_action :require_admin_role, except: [:index, :show]
   before_action :set_round, only: %i[show edit update destroy]
 
   # GET /rounds
@@ -41,6 +41,9 @@ class RoundsController < ApplicationController
     end
   end
 
+  def summary
+    RoundSummaryJob.perform_later @round
+  end
   # DELETE /rounds/1
   def destroy
     @round.destroy

@@ -25,18 +25,25 @@
           <td><%= match.away_team.name %></td>
           <td><%= match.home_team_score %></td>
           <td><%= match.away_team_score %></td>
+          <td> <%= link_to "Bet", new_round_match_bet_path(@round, match), class: "btn btn-warning"%></td>
+          <%if current_user.is_admin %>
           <td>
             <%= link_to "Edit", edit_round_match_path(@round, match), class: "btn btn-warning"%>
             <%= link_to "Destroy", round_match_path(@round, match), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this match?" } %>
           </td>
+          <%end %>
         </tr>
       <% end %>
     </tbody>
   </table>
-
+  <%if current_user.is_admin %>
   <div class="d-flex gap-3">
     <%= link_to "Add new match", new_round_match_path(@round), class: "btn btn-success"%>
     <%= link_to "Edit this round", edit_round_path(@round), class: "btn btn-primary"%>
     <%= link_to "Destroy this round", @round, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this round?" } %>
   </div>
 </div>
+  <% end %>
+    <td>
+      <%= link_to "sum", class: "btn btn-warning", data:{turbo_method: :summary} %>
+    </td>

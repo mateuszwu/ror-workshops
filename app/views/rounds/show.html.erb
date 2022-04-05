@@ -23,9 +23,10 @@
           <td><%= match.match_date.iso8601 %></td>
           <td><%= match.home_team.name %></td>
           <td><%= match.away_team.name %></td>
-          <td><%= match.home_team_score %></td>
-          <td><%= match.away_team_score %></td>
+          <td><%= match.user_bet(current_user.id).home_team_score%></td>
+          <td><%= match.user_bet(current_user.id).away_team_score %></td>
           <td>
+          <%= link_to "Bet", new_round_match_bet_path(@round, match), class: "btn btn-warning"%>
             <%= link_to "Edit", edit_round_match_path(@round, match), class: "btn btn-warning"%>
             <%= link_to "Destroy", round_match_path(@round, match), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this match?" } %>
           </td>

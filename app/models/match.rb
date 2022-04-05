@@ -5,12 +5,18 @@ class Match < ApplicationRecord
   validates :home_team_id, :away_team_id, :round_id, presence: true
   validate :team_uniqueness
   validate :match_uniqueness
+  
+  has_many :bets
 
   def team_uniqueness
     if home_team_id == away_team_id
       errors.add(:home_team_id, 'The home team has to be different from the away team')
     end
   end
+
+  def user_bet(id_user)
+    bets.find_by(user_id: id_user)
+end
 
   def match_uniqueness
     match1 = Match.find_by(match_date: match_date, home_team_id: home_team_id, away_team_id: away_team_id)

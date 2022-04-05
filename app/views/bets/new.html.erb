@@ -1,0 +1,6 @@
+<h1>New Bet</h1>
+<div class="d-flex gap-3 mb-3" >
+  <%= link_to "Back to matches", @round, class: "btn btn-secondary" %>
+</div>
+
+<%= render "form", bet: @bet, round: @round, match: @match  %>

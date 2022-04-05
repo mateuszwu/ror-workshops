@@ -26,13 +26,23 @@ class MatchesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /rounds/1/matches/1
+  def match_finished?
+    #@match.match_date > Date.today moe? :>
+  end
+
+  def updating_score?
+    (params[:home_team_score].present? || params[:away_team_score].present?)
+  end
+
+  # PATCH/PUT /rounds/ 1/matches/1
   def update
-    if @match.update(match_params)
+    if match_finished? && updating_score? && !current_user.is_admin?
+      redirect_to @round, notice: 'You dont have access'
+    elsif
+    @match.update(match_params)
       redirect_to @round, notice: 'Match was successfully updated.'
-    else
       @teams = options_for_team_select
-      render :edit, status: :unprocessable_entity
+
     end
   end
 

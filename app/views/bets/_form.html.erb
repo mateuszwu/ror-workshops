@@ -1,0 +1,33 @@
+<%= form_with(model: [@round, @match, @bet]) do |form| %>
+  <% if @bet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@bet.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+        <% @bet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <div class="row">
+      <div class='col-md-6'>
+        <%= form.label :home_team_score, class: "form-label" %>
+        <%= form.number_field :home_team_score, class: "form-control" %>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6'>
+        <%= form.label :away_team_score, class: "form-label" %>
+        <%= form.number_field :away_team_score, class: "form-control" %>
+      </div>
+     
+    </div>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.submit class:'btn btn-success'%>
+  </div>
+<% end %>

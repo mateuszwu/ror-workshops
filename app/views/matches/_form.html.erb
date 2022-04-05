@@ -29,6 +29,25 @@
       </div>
     </div>
   </div>
+  <%if match.id && Date.today - @match.match_date  > 1 %>
+  <div>
+    <div class="mb-3">
+    <div class="row">
+      <div class='col-md-6'>
+        <%= form.label :home_team_score, class: "form-label" %>
+        <%= form.number_field :home_team_score, class: "form-control" %>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6'>
+        <%= form.label :away_team_score, class: "form-label" %>
+        <%= form.number_field :away_team_score, class: "form-control" %>
+      </div>
+     
+    </div>
+  </div>
+  <%end%>
+
 
   <div class="form-group mb-3">
     <%= form.submit class:'btn btn-success'%>

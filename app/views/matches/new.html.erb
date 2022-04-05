@@ -3,4 +3,4 @@
   <%= link_to "Back to round", @round, class: "btn btn-secondary" %>
 </div>
 
-<%= render "form", match: @match %>
+<%= render "form", match: @match, round: @round, is_edit: false%>

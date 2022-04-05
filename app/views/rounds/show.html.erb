@@ -16,6 +16,8 @@
     <% @round.matches.each do |match| %>
     <li>
         <%= match.date %>
+        <%= link_to "Edit this match", edit_round_match_path(match), class: "btn btn-primary"%>
+
     </li>
     <% end %>
     </ol>

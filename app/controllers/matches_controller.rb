@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
     before_action :set_round
+    before_action :set_match, only: %i[show edit update destroy]
 
     def new
         @match = @round.matches.new
@@ -10,7 +11,6 @@ class MatchesController < ApplicationController
     end
 
     def edit
-
     end
 
     def create
@@ -29,7 +29,7 @@ class MatchesController < ApplicationController
     end
 
     def set_match
-        @round = Round.find(params[:id])
+        @match = Match.find(params[:id])
       end
 
     def set_round

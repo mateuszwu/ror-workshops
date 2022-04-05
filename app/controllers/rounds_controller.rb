@@ -1,6 +1,6 @@
 class RoundsController < ApplicationController
-  before_action :require_admin_role
-  before_action :set_round, only: %i[show edit update destroy]
+  before_action :require_admin_role, only: %i[new create edit update destroy]
+  before_action :set_round, only: %i[show edit update destroy summarize_round]
 
   # GET /rounds
   def index
@@ -9,7 +9,7 @@ class RoundsController < ApplicationController
 
   # GET /rounds/1
   def show
-    @matches = @round.matches.includes(:home_team, :away_team)
+    @matches = @round.matches.includes(:home_team, :away_team, :bets)
   end
 
   # GET /rounds/new
@@ -46,6 +46,11 @@ class RoundsController < ApplicationController
     @round.destroy
 
     redirect_to rounds_url, notice: 'Round was successfully destroyed.', status: :see_other
+  end
+
+  # POST /rounds/1/summarize_round
+  def summarize_round
+    SummarizeRoundJob.perform_later(@round)
   end
 
   private

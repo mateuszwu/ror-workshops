@@ -4,6 +4,14 @@
     <div class="card-body">
       <h5 class="card-title text-center"><%= "#{@round.number}/#{@round.year}" %></h5>
     </div>
+    <% if current_user.is_admin? %>
+      <div class="d-flex flex-column gap-1">
+        <%= link_to "Summarize round", summarize_round_round_path(@round), class: "btn btn-primary", data: { turbo_method: :post } %>
+        <%= link_to "Add new match", new_round_match_path(@round), class: "btn btn-success"%>
+        <%= link_to "Edit this round", edit_round_path(@round), class: "btn btn-warning"%>
+        <%= link_to "Destroy this round", @round, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this round?" } %>
+      </div>
+    <% end %>
   </div>
 
   <table class="table">
@@ -14,6 +22,8 @@
         <th scope="col">Away Team</th>
         <th scope="col">Home Team Score</th>
         <th scope="col">Away Team Score</th>
+        <th scope="col">Your Home Team Score</th>
+        <th scope="col">Your Away Team Score</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -25,18 +35,18 @@
           <td><%= match.away_team.name %></td>
           <td><%= match.home_team_score %></td>
           <td><%= match.away_team_score %></td>
+          <td><%= match.user_bet(current_user)&.home_team_score %></td>
+          <td><%= match.user_bet(current_user)&.away_team_score %></td>
           <td>
-            <%= link_to "Edit", edit_round_match_path(@round, match), class: "btn btn-warning"%>
-            <%= link_to "Destroy", round_match_path(@round, match), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this match?" } %>
+            <%= bet_link(match, current_user) %>
+            <% if current_user.is_admin? %>
+              <%= link_to "Edit", edit_round_match_path(@round, match), class: "btn btn-warning"%>
+              <%= link_to "Destroy", round_match_path(@round, match), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this match?" } %>
+            <% end %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <div class="d-flex gap-3">
-    <%= link_to "Add new match", new_round_match_path(@round), class: "btn btn-success"%>
-    <%= link_to "Edit this round", edit_round_path(@round), class: "btn btn-primary"%>
-    <%= link_to "Destroy this round", @round, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this round?" } %>
-  </div>
 </div>

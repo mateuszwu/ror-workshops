@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   resources :teams
   resources :users, only: %i[show edit update]
   resources :rounds do
-    resources :matches, except: %i[index show]
+    member do
+      post :summarize_round
+    end
+
+    resources :matches, except: %i[index show] do
+      resources :bets, except: %i[index show]
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

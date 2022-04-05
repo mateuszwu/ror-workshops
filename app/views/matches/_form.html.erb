@@ -31,6 +31,17 @@
   </div>
 
   <div class="form-group mb-3">
-    <%= form.submit class:'btn btn-success'%>
+    <%= form.submit class: 'btn btn-success' %>
   </div>
+  <% if current_user.is_admin? %>
+    <% if match.persisted? %>
+
+      <%= form.label :home_team_score, class: "form-label" %>
+      <%= form.number_field :home_team_score, class: "form-control" %>
+      <%= form.label :away_team_score, class: "form-label" %>
+      <%= form.number_field :away_team_score, class: "form-control" %>
+
+      <%= form.submit class: 'btn btn-success' %>
+    <% end %>
+  <% end %>
 <% end %>

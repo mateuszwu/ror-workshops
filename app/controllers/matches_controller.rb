@@ -2,6 +2,7 @@ class MatchesController < ApplicationController
   before_action :require_admin_role
   before_action :set_round, only: %i[new create show edit update destroy]
   before_action :set_match, only: %i[show edit update destroy]
+  before_action :unable_edit_before_match, only: %i[edit]
 
   # GET /rounds/1/matches/new
   def new
@@ -44,6 +45,12 @@ class MatchesController < ApplicationController
   end
 
   private
+
+  def unable_edit_before_match
+    if @match.match_date > Date.today
+      redirect_to @round, notice: "You can't do this"
+    end
+  end
 
   def options_for_team_select
     Team.order(:name).all.map { |team| [team.name, team.id] }

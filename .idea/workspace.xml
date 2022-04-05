@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fa6c458-1ff4-4e5e-b22f-4d45096830b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/bets/_form.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/bets/edit.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/bets/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/matches_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/matches_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/rounds_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/rounds_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/match.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/match.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/rounds/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/rounds/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/matches/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/matches/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/matches/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/matches/edit.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +223,7 @@
       <workItem from="1649081979131" duration="10578000" />
       <workItem from="1649102089208" duration="2248000" />
       <workItem from="1649154867783" duration="383000" />
-      <workItem from="1649168803220" duration="5280000" />
+      <workItem from="1649168803220" duration="7815000" />
     </task>
     <servers />
   </component>

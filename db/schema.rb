@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_02_192608) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_05_140835) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,6 +37,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_192608) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "bets", force: :cascade do |t|
+    t.integer "match_id"
+    t.integer "user_id"
+    t.integer "home_team_score", null: false
+    t.integer "away_team_score", null: false
+    t.integer "point", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_bets_on_match_id"
+    t.index ["point"], name: "index_bets_on_point"
+    t.index ["user_id"], name: "index_bets_on_user_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.bigint "away_team_id"
+    t.bigint "home_team_id"
+    t.integer "away_team_score"
+    t.integer "home_team_score"
+    t.datetime "match_date", null: false
+    t.integer "round_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["away_team_id"], name: "index_matches_on_away_team_id"
+    t.index ["home_team_id"], name: "index_matches_on_home_team_id"
+    t.index ["round_id"], name: "index_matches_on_round_id"
   end
 
   create_table "rounds", force: :cascade do |t|

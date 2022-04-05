@@ -17,11 +17,11 @@
   </div>
   <div class="mb-3">
     <%= form.label :home_team, class: 'form-label' %>
-    <%= form.elect :home_team_id, Team.pluck(:name,:id), class: "form-control" %>
+    <%= form.select :home_team_id, Team.pluck(:name,:id), class: "form-control" %>
   </div>
   <div class="mb-3">
     <%= form.label :away_team, class: 'form-label' %>
-    <%= form.text_field :away_team_id, Team.pluck(:name,:id), class: "form-control" %>
+    <%= form.select :away_team_id, Team.pluck(:name,:id), class: "form-control" %>
   </div>
 
   <div class="form-group mb-3">

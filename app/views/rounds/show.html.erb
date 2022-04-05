@@ -14,16 +14,27 @@
   </div>
 
   <div id="matches" class="d-flex flex-row flex-wrap bd-highlight mb-3 gap-3">
-    <ol class = "list-group">
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Home</th>
+      <th scope="col">Away</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
     <% @matches.each do |match| %>
-      <li class = "list-group-item">
-      <%= match.date %>
-      <%= match.home_team.name %>
-      <%= match.away_team.name %>
-      <%= link_to "Edit this match", edit_round_match_path(@round, match), class: "btn btn-primary"%>
-      </li>
+      <tr>
+      <th scope="row"></th>
+      <td><%= match.date %></td>
+      <td><%= match.home_team.name %></td>
+      <td><%= match.away_team.name %></td>
+      <td><%= link_to "Edit this match", edit_round_match_path(@round, match), class: "btn btn-info"%></td>
+      </tr>
     <% end %>
-    </ol>
+    </tbody>
+</table>
   </div>
 
 

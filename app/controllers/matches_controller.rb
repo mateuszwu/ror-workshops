@@ -35,6 +35,12 @@ class MatchesController < ApplicationController
       @teams = options_for_team_select
       render :edit, status: :unprocessable_entity
     end
+
+    if is_score_set? 
+      binding.break
+      RoundSummaryJob.perform_later(@match)
+    end
+
   end
 
   # DELETE /rounds/1/matches/1

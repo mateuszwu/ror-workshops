@@ -4,7 +4,7 @@ class Match < ApplicationRecord
   belongs_to :round
   has_many :bets
 
-  validates :home_team_id, :away_team_id, :round_id, presence: true
+  validates :home_team_id, :away_team_id, :round_id, :match_date, presence: true
   validates :home_team_score, :away_team_score, presence: true, on: :update, if: -> { match_date <= Date.today }
   validate :before_match_day_score, on: :update
   validate :team_uniqueness

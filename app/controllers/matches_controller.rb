@@ -16,8 +16,7 @@ class MatchesController < ApplicationController
 
   # POST /rounds/1/matches
   def create
-    @match = @round.matches.build(match_params)
-
+    @match = @round.matches.build(match_params_new)
     if @match.save
       redirect_to @round, notice: 'Match was successfully created.'
     else
@@ -28,7 +27,9 @@ class MatchesController < ApplicationController
 
   # PATCH/PUT /rounds/1/matches/1
   def update
-    if @match.update(match_params)
+    if is_score_set? && is_match_in_the_future?
+      redirect_to @round, notice: 'Match wasn not played yet!!!'.upcase
+    elsif @match.update(match_params_update)
       redirect_to @round, notice: 'Match was successfully updated.'
     else
       @teams = options_for_team_select
@@ -59,7 +60,20 @@ class MatchesController < ApplicationController
   end
 
   # Only allow a list of trusted parameters through.
-  def match_params
+  def match_params_new
+      params.require(:match).permit(:home_team_id, :away_team_id, :match_date)
+  end
+
+  def match_params_update
     params.require(:match).permit(:home_team_id, :away_team_id, :match_date, :home_team_score, :away_team_score)
   end
+
+  def is_score_set?
+    @match.away_team_score.present? || @match.home_team_score.present?
+  end
+
+  def is_match_in_the_future?
+    Date.parse(match_params_update[:match_date]) > Date.today
+  end
+
 end

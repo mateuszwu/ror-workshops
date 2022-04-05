@@ -27,6 +27,15 @@
         <%= form.label :away_team_id, class: "form-label" %>
         <%= form.select :away_team_id, @teams, {}, class: "form-select" %>
       </div>
+
+      <div class='col-md-6'>
+        <%= form.label :home_team_score, class: "form-label" %>
+        <%= form.text_field :home_team_score, class: "form-select" %>
+      </div>
+      <div class='col-md-6'>
+        <%= form.label :away_team_score, class: "form-label" %>
+        <%= form.text_field :away_team_score, class: "form-select" %>
+      </div>
     </div>
   </div>
 

@@ -5,6 +5,7 @@ class Match < ApplicationRecord
   validates :home_team_id, :away_team_id, :round_id, presence: true
   validate :team_uniqueness
   validate :match_uniqueness
+  # validates :home_team_score, :away_team_score, presence: true, on: :update
 
   def team_uniqueness
     if home_team_id == away_team_id

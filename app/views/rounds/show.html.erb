@@ -9,6 +9,16 @@
 
   <div class="d-flex gap-3">
     <%= link_to "Edit this round", edit_round_path(@round), class: "btn btn-primary"%>
+    <%= link_to "Add", new_round_match_path(@round), class: "btn btn-secondary"%>
     <%= link_to "Destroy this round", @round, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this round?" } %>
   </div>
+  <ol>
+    <% @round.matches.each do |match| %>
+      <li>
+        <%= match.date%>
+        <%= link_to "Edit", edit_round_match_path(match.round, match), class: "btn btn-primary"%>
+
+      </li>
+    <% end %>
+  </ol>
 </div>

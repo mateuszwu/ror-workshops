@@ -1,0 +1,5 @@
+<%= form_with(model: [round, match, bet]) do |form| %>
+  <%= form.number_field :home_team_score %>
+  <%= form.number_field :away_team_score %>
+  <%= form.submit %>
+<% end %>

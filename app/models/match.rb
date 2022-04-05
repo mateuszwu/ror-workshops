@@ -15,7 +15,7 @@ class Match < ApplicationRecord
   end
 
   def user_bet(id_user)
-    bets.find_by(user_id: id_user)
+    bets.find_bygit (user_id: id_user)
 end
 
   def match_uniqueness

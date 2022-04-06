@@ -1,0 +1,6 @@
+<div class="card" style="width: 18rem;" id="<%= dom_id round %>">
+  <div class="card-body position-absolute top-100 start-0">
+    <h5 class="card-title"><%= "#{round.number}/#{round.year}" %></h5>
+    <%= link_to "Show this round", admin_round_path(round), class: "btn btn-primary" %>
+  </div>
+</div>

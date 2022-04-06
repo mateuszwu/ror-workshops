@@ -8,14 +8,31 @@
       <td class="card" style="width: 3rem">
         <%= view_logo(team) %>
       </td>
-      <td align="left" width="100%">
+      <td align="left" width="80%">
         <%= team.name %>
       </td>
-
+      <td align="center" width="20%">
+        <%= link_to "Show this team", admin_team_path(team), class: "btn btn-primary" %>
+      </td>
     </tr>
   </table>
 <% end %>
 <h4>
-  Matches
-  <small class="text-muted"><%= link_to "New match", new_admin_match_path, class: "btn btn-primary" %></small>
+  Rounds
+  <small class="text-muted"><%= link_to "New round", new_admin_round_path, class: "btn btn-primary" %></small>
 </h4>
+  <% @rounds.each do |round| %>
+  <table class="table  table-stripes table-bordered table-hover">
+    <tr>
+      <td align="left" width="30%">
+    <%= round.number %>
+      </td>
+      <td align="left" width="30%">
+        <%= round.year %>
+      </td>
+      <td align="center" width="40%">
+        <%= link_to "Show this round", admin_round_path(round), class: "btn btn-primary" %>
+      </td>
+    </tr>
+  </table>
+  <% end %>

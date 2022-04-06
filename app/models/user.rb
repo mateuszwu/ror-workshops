@@ -19,6 +19,6 @@ class User < ApplicationRecord
   end
 
   def points_from_match(match)
-    bets.find_by(match: match).points
+    bets.find_by(match: match)&.points
   end
 end

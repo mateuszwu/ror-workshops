@@ -18,15 +18,16 @@ Welcome to the Football Typper
 </tr>
 
 <% @round.matches.each do |match|%>
+<tr>
     <th><%= match.display_match %></th>
     <% @users.each do |user|%>
         <th>
         <%=user.points_from_match(match) %>
         </th>
     <% end %>
-    
+</tr>    
 <% end %>
-<tr>
 
-</tr>
+
+
 </table>

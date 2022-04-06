@@ -10,7 +10,15 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def points
-    bets.sum(:points)
+  def has_bets?(round)
+    round.matches.first.bets.where(user_id: id).count > 0
+  end
+
+  def points(round)
+    round.matches.first.bets.where(user_id: id).sum(:points)
+  end
+
+  def points_from_match(match)
+    bets.find_by(match: match).points
   end
 end

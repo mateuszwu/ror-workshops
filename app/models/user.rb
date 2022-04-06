@@ -14,4 +14,9 @@ class User < ApplicationRecord
   def points
     bets.sum(:points)
   end
+
+  def match_points(match)
+    bets.where(match: match).sum(:points)
+  end
+
 end

@@ -33,7 +33,7 @@ Rounds
           </td>
           <% @users.each do |user| %>
           <td>
-            <%= user%>
+            <%= user.match_points(match) %>
           </td>
           <% end %>
         </tr>

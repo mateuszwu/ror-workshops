@@ -128,6 +128,8 @@ GEM
     nokogiri (1.13.3-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (5.10.1)
+      activesupport
     puma (5.6.2)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -198,6 +200,7 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+  x86_64-darwin-20
   x86_64-darwin-21
 
 DEPENDENCIES
@@ -207,6 +210,7 @@ DEPENDENCIES
   devise
   jbuilder
   jsbundling-rails
+  pagy
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
   redis (~> 4.0)

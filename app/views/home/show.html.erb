@@ -1,1 +1,61 @@
 Welcome to the Football Typper
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= user.full_name %>
+
+      <%= user.points %>
+    </li>
+  <% end %>
+</ul>
+
+<%== pagy_nav(@pagy) %>
+
+
+
+
+<h1>
+  Round:<%= @round.number %> / <%= @round.year %>
+</h1>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Mecz</th>
+    <th scope="col">    <% @users_tab.each do |user| %>
+      <td>
+        <%= user.full_name %>
+      </td>
+    <% end %></th>
+  </tr>
+  </thead>
+
+
+  <tbody>
+
+  <tr>
+    <% @round.matches.each do |match| %>
+    <tr>
+      <td>
+        <%= match.home_team.name %> vs
+        <%= match.away_team.name %>
+      </td>
+
+
+      <% @users_tab.each do |user| %>
+
+        <td>
+          <% if user.bets.find_by(match_id: match.id) %>
+            <%= user.bets.find_by(match_id: match.id).points %>
+          <% else %>
+            0
+            </td>
+          <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+  </tr>
+  </tbody>
+</table>
+

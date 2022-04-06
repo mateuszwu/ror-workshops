@@ -5,8 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
+  has_many :bets
 
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def points
+    bets.sum(:points)
+  end
+
 end

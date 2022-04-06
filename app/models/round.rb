@@ -1,5 +1,6 @@
 class Round < ApplicationRecord
   has_many :matches
+  has_many :users, through: :matches
 
   validates :number, presence: true
   validates :year, comparison: {

@@ -1,1 +1,28 @@
-Welcome to the Football Typper
+<h1>Welcome to the Football Typper</h1>
+<ul class="list-unstyled">
+<% @users.sort_by(&:points).reverse.each do |user| %>
+  <li>
+    <%= user.full_name %>
+    Punkty:
+    <%= user.points %>
+  </li>
+<% end %>
+</ul>
+<%== pagy_bootstrap_nav(@pagy) %>
+<h2>Runda:<%= @round.number %> Rok: <%= @round.year %></h2>
+<table class="table">
+  <tr>
+    <th class="col">Mecz</th>
+    <% @users.each do |user| %>
+      <th class="col"><%= user.full_name %></th>
+    <% end %>
+  </tr>
+  <% @matches.each do |match| %>
+    <tr>
+      <td><%= match.home_team.name %> - <%= match.away_team.name %></td>
+      <% @users.each do |user| %>
+        <th><%= user.points_per_match(match) %></th>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

@@ -3,6 +3,7 @@ class Match < ApplicationRecord
   belongs_to :away_team, class_name: 'Team'
   belongs_to :round
   has_many :bets
+  has_many :users, through: :bets
 
   validates :home_team_id, :away_team_id, :round_id, :match_date, presence: true
   validates :home_team_score, :away_team_score, presence: true, on: :update, if: -> { match_date <= Date.today }

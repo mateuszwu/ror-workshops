@@ -7,7 +7,6 @@ class CreateMatch < ActiveRecord::Migration[7.0]
       t.integer :home_team_score
       t.references :round, null: false, foreign_key: true
       t.date :match_date
-
       t.timestamps
     end
   end

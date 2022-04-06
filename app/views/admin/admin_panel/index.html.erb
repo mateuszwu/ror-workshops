@@ -1,0 +1,21 @@
+<h3>
+  Teams
+  <small class="text-muted"><%= link_to "New team", new_admin_team_path, class: "btn btn-primary" %></small>
+</h3>
+<% @teams.each do |team| %>
+  <table class="table  table-stripes table-bordered table-hover">
+    <tr>
+      <td class="card" style="width: 3rem">
+        <%= view_logo(team) %>
+      </td>
+      <td align="left" width="100%">
+        <%= team.name %>
+      </td>
+
+    </tr>
+  </table>
+<% end %>
+<h4>
+  Matches
+  <small class="text-muted"><%= link_to "New match", new_admin_match_path, class: "btn btn-primary" %></small>
+</h4>

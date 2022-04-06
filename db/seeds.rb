@@ -9,3 +9,5 @@
 Team.create(name: 'Arsenal F.C.')
 Team.create(name: 'Real Madrid')
 Team.create(name: 'FC Barcelona')
+User.create(email: "admin@admin.com", password: "123123", password_confirmation: "123123", first_name: "admin", last_name: "admin", is_admin: true)
+User.create(email: "user@user.com", password: "123123", password_confirmation: "123123", first_name: "user", last_name: "user", is_admin: false)

@@ -11,11 +11,12 @@ Welcome to the Football Typper
 </ol>
 
 Rounds
-
+<%== pagy_bootstrap_nav(@pagy) %>
 <table class="table">
     <thead>
       <tr>
         <th>
+        Match
         </th>
         <% @users.each do |user| %>
         <th>
@@ -25,18 +26,21 @@ Rounds
       </tr>
     </thead>
     <tbody>
+    
       <% @rounds.each do |round| %>
-      <% round.matches.each do |match| %>
-      <tr>
-          <td>
-            <%= match.home_team.name%> vs <%=match.away_team.name%>
-          </td>
-          <% @users.each do |user| %>
-          <td>
-            <%= user.match_points(match) %>
-          </td>
-          <% end %>
-        </tr>
+      
+      
+        <% round.matches.each do |match| %>
+        <tr>
+            <td>
+              <%= match.home_team.name%> vs <%=match.away_team.name%>
+            </td>
+            <% @users.each do |user| %>
+            <td>
+              <%= match.user_bet(user)&.points %>
+            </td>
+            <% end %>
+          </tr>
         <% end %>
       <% end %>
     </tbody>

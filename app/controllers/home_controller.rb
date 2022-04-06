@@ -1,8 +1,10 @@
+include Pagy::Frontend
+
 class HomeController < ApplicationController
 
 def show 
-#     @users = User.all.sort_by(&:points(Round.last)).reverse
-    @round = Round.last
+
+    @pagy, (@round,) = pagy(Round.all, items: 1)
     @users = User.all.filter do |user|
         user.has_bets?(@round)
     end

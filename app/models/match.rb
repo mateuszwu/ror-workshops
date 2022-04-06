@@ -49,6 +49,10 @@ class Match < ApplicationRecord
     # end
   end
 
+  def display_match
+    home_team.name.concat(" vs ").concat(away_team.name)
+  end
+
   def user_bet(user)
     bets.find_by(user_id: user.id)
   end

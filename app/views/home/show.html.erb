@@ -1,10 +1,34 @@
 Welcome to the Football Typper
 <ol>
 <% @users.each do |user|%>
-
-<li>
-<%= user.full_name%>
-<%= user.points%>
-</li>
+    <li>
+    <%= user.full_name%>
+    <%= user.points(@round)%>
+    </li>
 <% end %>
 </ol>
+
+
+
+<table>
+
+<tr>
+<th></th>
+    <% @users.each do |user|%>
+        <th><%= user.full_name%></th>
+    <% end %>
+</tr>
+
+<% @round.matches.each do |match|%>
+    <th><%= match.display_match %></th>
+    <% @users.each do |user|%>
+        <th>
+        <%=user.points_from_match(match) %>
+        </th>
+    <% end %>
+    
+<% end %>
+<tr>
+
+</tr>
+</table>

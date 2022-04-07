@@ -1,1 +1,46 @@
-Welcome to the Football Typper
+
+<%= @rounds.count %>
+
+
+<div>
+  <ol>
+    <% @user.sort_by { |user| user.points }.reverse.each do |user| %>
+      <li><%= user.full_name %>
+        <%= user.points %>
+      </li>
+    <% end %>
+
+  </ol>
+</div>
+
+
+<div>
+  <%== pagy_nav(@pagy) %>
+
+  <ol>
+    <% @matches.each do |match| %>
+      <li>
+        <tr>
+          <%= match.home_team.name %>
+          v
+          <%= match.away_team.name %>
+          <ol>
+            <% @user.each do |user| %>
+              <% if !user.points_for_match(match.id).empty? %>
+                <li>
+                  <%= user.full_name %>
+                  <%= user.points_for_match(match.id).sum %>
+                </li>
+              <% end %>
+            <% end %>
+          </ol>
+      </li>
+    <% end %>
+  </ol>
+</div>
+
+
+</div>
+
+
+

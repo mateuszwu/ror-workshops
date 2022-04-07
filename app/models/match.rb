@@ -52,4 +52,6 @@ class Match < ApplicationRecord
   def user_bet(user)
     bets.find_by(user_id: user.id)
   end
+
+
 end

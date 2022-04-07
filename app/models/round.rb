@@ -17,4 +17,6 @@ class Round < ApplicationRecord
       errors.add(:number, 'number/year pair has to be unique')
     end
   end
+
+
 end

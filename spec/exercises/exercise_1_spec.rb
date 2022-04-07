@@ -6,6 +6,15 @@
 # https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/raise-error-matcher
 
 # Place implementation below
+class Calculator
+  def add(x, y)
+    if (x.is_a?(Integer) || x.is_a?(Float)) && (y.is_a?(Integer) || y.is_a?(Float))
+      x + y
+    else
+      raise "Works only for numbers"
+    end
+  end
+end
 
 # Tests below
 RSpec.describe Calculator do

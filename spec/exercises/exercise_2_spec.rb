@@ -1,3 +1,4 @@
+require 'rails_helper'
 # Exercise 2 - Mocks and yields
 # - Implement class that fulfills requirements provided in tests
 # - Tests cannot be changed
@@ -22,11 +23,28 @@ end
 
 class IMDBWrapper
   # Do not provide implementation for this class
-  def movie_score(title)
-  end
+  def movie_score(title) end
 end
 
 # Place implementation below
+# def each
+#   arr = CinemaCityWrapper.this_week_movies.map { |movie| {title: movie.title, score: IMDBWrapper.new.movie_score(movie.title)}}
+#   arr.sort! {|a,b| b[:score] <=> a[:score]}
+#   arr.first(3).each do |movie|
+#     yield movie[:title]
+#   end
+# end
+class TopMoviesThisWeekCollection
+  def each
+    titles = CinemaCityWrapper.this_week_movies.map { |movie| { title: movie.title, score: IMDBWrapper.new.movie_score(movie.title) } }
+    titles = titles.sort_by { |title| title[:score].to_i }.reverse
+    titles.first(3).each do |t|
+      if t[:score] != nil
+        yield t[:title]
+      end
+    end
+  end
+end
 
 # Tests below
 RSpec.describe TopMoviesThisWeekCollection do

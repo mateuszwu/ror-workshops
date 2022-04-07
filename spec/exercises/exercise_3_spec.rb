@@ -22,7 +22,7 @@ class RoundsFactory
   
   def self.build(year, number)
   @@next_id += 1
-  date = Date.parse('2077-01-04')
+  date = Date.parse('1999-01-04')
     Round.new(year: year, number: number, id: @@next_id, created_at: date, updated_at: date)
   end
 end
@@ -40,13 +40,32 @@ RSpec.describe Match do
   describe '#valid?' do
     it 'return false when home team is the same as away team' do  
       team = TeamsFactory.build(name: "Szermierka Kielce")
-      expect(Match.new(id: 1, match_date:Date.today, round: RoundsFactory.build(2022, 1), home_team: team, away_team: team)).to_not be_valid 
+      expect(Match.new(id: 1, match_date:Date.tomorrow, round: RoundsFactory.build(2022, 1), home_team: team, away_team: team)).to_not be_valid 
     end
 
     it 'return true when home team is diffrent than the away team' do  
       team1 = TeamsFactory.build(name: "Szermierka Kielce")
       team2 = TeamsFactory.build(name: "Rebel Fencing")
-      expect(Match.new(id: 1, match_date:Date.today, round: RoundsFactory.build(2022, 1), home_team: team1, away_team: team2)).to be_valid 
+      expect(Match.create(id: 1, match_date:Date.tomorrow, round: RoundsFactory.build(2022, 1), home_team: team1, away_team: team2)).to be_valid 
     end
+
+    it 'return true unique Matche is created' do  
+      team1 = TeamsFactory.build(name: "Szermierka Kielce")
+      team2 = TeamsFactory.build(name: "Rebel Fencing")
+      team3 = TeamsFactory.build(name: "Szkoła Gryfa")
+      round = RoundsFactory.build(2022, 1)
+      Match.create(match_date:Date.tomorrow, round: round, home_team: team1, away_team: team2)
+      expect(Match.create(match_date:Date.today+2, round: round, home_team: team1, away_team: team3)).to be_valid 
+    end
+
+    it 'return false when similar Matches are created' do  
+      team1 = TeamsFactory.build(name: "Szermierka Kielce")
+      team2 = TeamsFactory.build(name: "Rebel Fencing")
+      round = RoundsFactory.build(2022, 1)
+      Match.create(match_date:Date.tomorrow, round: round, home_team: team1, away_team: team2)
+      expect(Match.new(match_date:Date.tomorrow, round: round, home_team: team1, away_team: team2)).to_not be_valid
+    end
+
+
   end
 end

@@ -7,6 +7,15 @@
 
 # Place implementation below
 
+class Calculator
+
+  def add(a,b)
+    raise 'Works only for numbers' if a.kind_of?(String) || b.kind_of?(String)
+    a+b
+  end
+
+end
+
 # Tests below
 RSpec.describe Calculator do
   describe '#add' do

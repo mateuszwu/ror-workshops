@@ -28,6 +28,25 @@ end
 
 # Place implementation below
 
+class TopMoviesThisWeekCollection
+  def each
+
+    ranked_movies = CinemaCityWrapper.this_week_movies.map do |movie|
+    
+      [movie.title ,IMDBWrapper.new.movie_score(movie.title)]
+  
+      end
+
+    ranked_movies.reject!{|_title, score| !score}
+    ranked_movies.sort_by!{|_title, score| score}.reverse!
+
+    ranked_movies.take(3).each do |movie|
+    yield movie[0]
+    end
+    
+  end
+end
+
 # Tests below
 RSpec.describe TopMoviesThisWeekCollection do
   describe '#each' do

@@ -22,11 +22,31 @@ end
 
 class IMDBWrapper
   # Do not provide implementation for this class
-  def movie_score(title)
-  end
+  def movie_score(title) end
 end
 
 # Place implementation below
+
+class TopMoviesThisWeekCollection
+
+  def each
+
+    this_week_movies = CinemaCityWrapper.this_week_movies
+
+    imdbw = IMDBWrapper.new
+
+    movie_scores = this_week_movies.map { |movie| [movie.title, imdbw.movie_score(movie.title)]}
+
+    movie_scores.reject! { |movie| movie[1] == nil }
+
+    top_3_movies = movie_scores.sort_by { |_title,score| score }.reverse.first(3)
+
+    top_3_movies.each do |movie,_score|
+      yield movie
+    end
+  end
+
+end
 
 # Tests below
 RSpec.describe TopMoviesThisWeekCollection do

@@ -7,6 +7,18 @@
 
 # Place implementation below
 
+class Calculator
+  def add (a, b)
+    if a.is_a?(String) || b.is_a?(String)
+      raise 'Works only for numbers'
+    else
+      (a + b)
+    end
+  end
+end
+
+
+
 # Tests below
 RSpec.describe Calculator do
   describe '#add' do

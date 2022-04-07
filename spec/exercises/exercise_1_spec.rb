@@ -7,6 +7,13 @@
 
 # Place implementation below
 
+class Calculator
+  def add(a, b)
+    raise RuntimeError, 'Works only for numbers' if a.is_a?(String) || b.is_a?(String)
+    a + b
+  end
+end
+
 # Tests below
 RSpec.describe Calculator do
   describe '#add' do

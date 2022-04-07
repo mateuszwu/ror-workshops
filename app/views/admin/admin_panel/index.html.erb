@@ -5,7 +5,7 @@
 <% @teams.each do |team| %>
   <table class="table  table-stripes table-bordered table-hover">
     <tr>
-      <td class="card" style="width: 3rem">
+      <td class="card" style="width: 4rem">
         <%= view_logo(team) %>
       </td>
       <td align="left" width="80%">
@@ -21,18 +21,40 @@
   Rounds
   <small class="text-muted"><%= link_to "New round", new_admin_round_path, class: "btn btn-primary" %></small>
 </h4>
-  <% @rounds.each do |round| %>
+<% @rounds.each do |round| %>
   <table class="table  table-stripes table-bordered table-hover">
     <tr>
-      <td align="left" width="30%">
-    <%= round.number %>
+      <td align="center" width="30%">
+        <h5> Round <%= round.number %> </h5>
       </td>
-      <td align="left" width="30%">
-        <%= round.year %>
+      <td colspan="2" align="center" width="40%">
+       <h6> <%= round.year %> </h6>
       </td>
-      <td align="center" width="40%">
-        <%= link_to "Show this round", admin_round_path(round), class: "btn btn-primary" %>
+      <td align="center" width="30%">
+        <%= link_to "Show", admin_round_path(round), class: "btn btn-primary" %>
+        <%= link_to "Edit", edit_admin_round_path(round), class: "btn btn-primary" %>
+        <%= link_to "Delete", admin_round_path(round), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete round: #{round.number}" } %>
+        <%= link_to "Create match", new_admin_round_match_path(round), class: "btn btn-success" %>
       </td>
     </tr>
+    <% @matches.each do |match| %>
+      <% if match.round_id == round.id %>
+        <tr>
+          <td align="center" width="30%">
+            <%= match.match_date %>
+          </td>
+          <td align="center" width="20%">
+            <%= match.home_team.name %>
+          </td>
+          <td align="center" width="20%">
+            <%= match.away_team.name %>
+          </td>
+          <td align="center" width="30%">
+            <%= link_to "Edit", edit_admin_round_match_path(round, match), class: "btn btn-primary" %>
+            <%= link_to "Delete", admin_round_match_path(round, match), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this match?" } %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
   </table>
-  <% end %>
+<% end %>

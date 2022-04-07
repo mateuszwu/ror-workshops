@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   namespace :admin do
     root 'admin_panel#index'
-    resources :matches
     resources :bets
     resources :teams
-    resources :rounds
     resources :users
+    resources :rounds do
+      resources :matches
+    end
   end
 
   root 'home#index'

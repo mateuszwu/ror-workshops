@@ -18,12 +18,12 @@ def valid_round
 end
 
 class TeamsFactory
-  @@next_id = 1
+  @@next_id = 0
+  
   def self.build(name)
   @@next_id += 1
     Team.new(name: name, id: @@next_id)
   end
-
 end
 
 RSpec.describe Match do

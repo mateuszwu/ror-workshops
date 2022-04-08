@@ -27,13 +27,6 @@ class IMDBWrapper
 end
 
 # Place implementation below
-# def each
-#   arr = CinemaCityWrapper.this_week_movies.map { |movie| {title: movie.title, score: IMDBWrapper.new.movie_score(movie.title)}}
-#   arr.sort! {|a,b| b[:score] <=> a[:score]}
-#   arr.first(3).each do |movie|
-#     yield movie[:title]
-#   end
-# end
 class TopMoviesThisWeekCollection
   def each
     titles = CinemaCityWrapper.this_week_movies.map { |movie| { title: movie.title, score: IMDBWrapper.new.movie_score(movie.title) } }

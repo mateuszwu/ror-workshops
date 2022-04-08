@@ -8,7 +8,7 @@
 # Place implementation below
 class Calculator
   def add(x, y)
-    if (x.is_a?(Integer) || x.is_a?(Float)) && (y.is_a?(Integer) || y.is_a?(Float))
+    if x.kind_of?(Numeric) && y.kind_of?(Numeric)
       x + y
     else
       raise "Works only for numbers"

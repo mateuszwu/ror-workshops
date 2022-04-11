@@ -28,6 +28,9 @@
         <li class="nav-item">
           <%= link_to 'Teams', teams_path, class: "nav-link" %>
         </li>
+        <% if user_signed_in? %>
+          <%= link_to 'Rounds', rounds_path, class: "nav-link" %>
+        <% end %>
         <% if current_user&.admin? %>
           <li class="nav-item">
             <%= link_to 'ADMIN', admin_root_path, class: "nav-link" %>

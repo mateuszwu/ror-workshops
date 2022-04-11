@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_05_140835) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_11_145902) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -44,11 +44,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_140835) do
     t.integer "user_id"
     t.integer "home_team_score", null: false
     t.integer "away_team_score", null: false
-    t.integer "point", default: 0
+    t.integer "points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["match_id"], name: "index_bets_on_match_id"
-    t.index ["point"], name: "index_bets_on_point"
+    t.index ["points"], name: "index_bets_on_points"
     t.index ["user_id"], name: "index_bets_on_user_id"
   end
 

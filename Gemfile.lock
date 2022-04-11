@@ -131,9 +131,11 @@ GEM
     nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pry (0.13.1)
+    pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     puma (5.6.2)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -214,7 +216,7 @@ DEPENDENCIES
   devise
   jbuilder
   jsbundling-rails
-  pry (~> 0.13.1)
+  pry-rails
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
   redis (~> 4.0)

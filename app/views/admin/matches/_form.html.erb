@@ -1,4 +1,4 @@
-<%= form_for [@round, @match], as: :match, url: admin_round_matches_path do |form| %>
+<%= form_with model: [:admin, @round, @match] do |form| %>
   <% if @match.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>

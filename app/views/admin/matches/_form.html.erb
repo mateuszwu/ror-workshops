@@ -16,8 +16,12 @@
     <%= form.date_field :match_date, class: "form-control" %>
     <%= form.label :home_team_id, class: "form-label" %>
     <%= form.select :home_team_id, @teams, {}, class: "form-select" %>
+    <%= form.label :set_score, class: "form-label" %>
+    <%= form.number_field :home_team_score, class: "form-control" %>
     <%= form.label :away_team_id, class: "form-label" %>
     <%= form.select :away_team_id, @teams, {}, class: "form-select" %>
+    <%= form.label :set_score, class: "form-label" %>
+    <%= form.number_field :away_team_score, class: "form-control" %>
     <%= form.label :round_id, class: "form-label" %>
     <%= form.select :round_id, @rounds, {}, class: "form-select" %>
   </div>

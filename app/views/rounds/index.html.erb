@@ -1,40 +1,29 @@
 <% @rounds.each do |round| %>
-  <table class="table  table-stripes table-bordered table-hover">
+  <table class="table table-stripes table-bordered table-hover" style="text-align: center;">
     <tr>
-      <td align="center" width="30%">
-        <h5> Round <%= round.number %> </h5>
-      </td>
-      <td colspan="2" align="center" width="40%">
-        <h6> <%= round.year %> </h6>
-      </td>
-      <td colspan="2" align="center" width="30%">
-        <h7> Your bets</h7>
-      </td>
+      <td colspan="1" style="width: 10%;">Round <%= round.number %></td>
+      <td colspan="3" style="width: 50%;"><%= round.year %></td>
+      <td colspan="1" style="width: 10%;">Your bets</td>
+      <td colspan="1" style="width: 10%;">Points</td>
+      <td colspan="1" style="width: 20%;"></td>
     </tr>
-    <% @matches.each do |match| %>
-      <% if match.round_id == round.id %>
-        <tr>
-          <td align="center" width="30%">
-            <%= match.match_date %>
-          </td>
-          <td align="center" width="20%">
-            <%= match.home_team.name %>
-          </td>
-          <td align="center" width="20%">
-            <%= match.away_team.name %>
-          </td>
-          <td align="center" width="15%">
-            <% @bets.each do |bet| %>
-              <% if bet.match_id == match.id %>
-                <h8> <%= "#{bet.home_team_score}:#{bet.away_team_score}" %> </h8>
-              <% end %>
-            <% end %>
-            <td align="center" width="15%">
-              <%= link_to "Create bet", new_round_match_bet_path(round, match), class: "btn btn-success" %>
-            </td>
-          </td>
-        </tr>
-      <% end %>
+    <% round.matches.each do |match| %>
+      <tr>
+        <td><%= match.match_date.to_s(:short) %></td>
+        <td style="width: 20%;"><%= match.home_team.name %></td>
+        <td><%= "#{match.home_team_score}:#{match.away_team_score}" %></td>
+        <td style="width: 20%;"><%= match.away_team.name %></td>
+        <% match.bets.where(user_id: current_user.id).each do |bet| %>
+            <td><%= "#{bet.home_team_score}:#{bet.away_team_score}" %> </td>
+            <td><%= bet.points %></td>
+          <td><%= link_to "Edit bet", edit_round_match_bet_path(round, match, bet), class: "btn btn-primary" %></td>
+        <% end %>
+
+        <% if match.bets.where(user_id: current_user.id).empty? %>
+          <td>:</td>
+          <td>0</td>
+          <td><%= link_to "Create bet", new_round_match_bet_path(round, match), class: "btn btn-success" %></td>
+        <% end %>
     <% end %>
   </table>
 <% end %>

@@ -3,11 +3,7 @@ class RoundsController < ApplicationController
 
   # GET /teams
   def index
-    @teams = Team.all
     @rounds = Round.all
-    @matches = Match.all
-    @bets = current_user.bets.all
-
   end
 
   # GET /teams/1

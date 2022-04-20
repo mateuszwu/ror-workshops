@@ -4,8 +4,9 @@
       <td colspan="1" style="width: 10%;">Round <%= round.number %></td>
       <td colspan="3" style="width: 50%;"><%= round.year %></td>
       <td colspan="1" style="width: 10%;">Your bets</td>
+      <td colspan="1" style="width: 10%;">Bet date</td>
       <td colspan="1" style="width: 10%;">Points</td>
-      <td colspan="1" style="width: 20%;"></td>
+      <td colspan="1" style="width: 10%;"></td>
     </tr>
     <% round.matches.each do |match| %>
       <tr>
@@ -14,13 +15,25 @@
         <td><%= "#{match.home_team_score}:#{match.away_team_score}" %></td>
         <td style="width: 20%;"><%= match.away_team.name %></td>
         <% match.bets.where(user_id: current_user.id).each do |bet| %>
-            <td><%= "#{bet.home_team_score}:#{bet.away_team_score}" %> </td>
-            <td><%= bet.points %></td>
-          <td><%= link_to "Edit bet", edit_round_match_bet_path(round, match, bet), class: "btn btn-primary" %></td>
+          <td><%= "#{bet.home_team_score}:#{bet.away_team_score}" %> </td>
+          <td><%= bet.updated_at.to_s(:short) %></td>
+          <td>
+            <% if match.home_team_score == bet.home_team_score and match.away_team_score == bet.away_team_score %>
+              1
+            <% else %>
+              0
+            <% end %>
+          </td>
+          <td>
+            <% if match.match_date < Date.today %>
+            <% else %>
+              <%= link_to "Edit bet", edit_round_match_bet_path(round, match, bet), class: "btn btn-primary" %></td>
+            <% end %>
         <% end %>
 
         <% if match.bets.where(user_id: current_user.id).empty? %>
           <td>:</td>
+          <td></td>
           <td>0</td>
           <td><%= link_to "Create bet", new_round_match_bet_path(round, match), class: "btn btn-success" %></td>
         <% end %>

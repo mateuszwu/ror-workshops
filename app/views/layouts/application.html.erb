@@ -37,6 +37,11 @@
           </li>
         <% end %>
       </ul>
+      <ul class="navbar-nav mx-auto">
+        <% if user_signed_in? %>
+          <%#= "Summary points: " %>
+        <% end %>
+      </ul>
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item">

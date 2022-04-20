@@ -1,10 +1,14 @@
 module Admin
   class RoundsController < BaseController
-    before_action :set_round, only: %i[show edit update destroy]
+    before_action :set_round, only: %i[show edit update destroy round_summary]
 
     # GET /teams
     def index
       @rounds = Round.all
+    end
+
+    def round_summary
+      RoundSummaryJob.perform(@round)
     end
 
     # GET /teams/1
@@ -35,6 +39,7 @@ module Admin
     def update
       if @round.update(round_params)
         redirect_to admin_round_url(@round), notice: 'Round was successfully updated.'
+        @round.round_summary
       else
         render :edit, status: :unprocessable_entity
       end

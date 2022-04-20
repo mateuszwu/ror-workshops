@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :teams
   resources :rounds do
+    member do
+      post :round_summary
+    end
     resources :matches do
       resources :bets
     end

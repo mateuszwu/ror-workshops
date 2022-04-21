@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :teams
   resources :rounds do
-    member do
-      post :round_summary
-    end
     resources :matches do
       resources :bets
     end
@@ -16,11 +13,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   namespace :admin do
     root 'admin_panel#index'
-    resources :bets
     resources :teams
     resources :users
     resources :rounds do
+      member do
+        post :round_summary
+      end
       resources :matches
+      resources :bets
     end
   end
 

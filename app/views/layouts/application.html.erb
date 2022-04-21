@@ -39,7 +39,7 @@
       </ul>
       <ul class="navbar-nav mx-auto">
         <% if user_signed_in? %>
-          <%#= "Summary points: " %>
+          <%= "Summary points: #{current_user.bets.sum(:points)}" %>
         <% end %>
       </ul>
       <ul class="navbar-nav ms-auto">

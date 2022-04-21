@@ -13,7 +13,7 @@
 
   <div class="mb-3">
     <%= form.label :match_date, class: "form-label" %>
-    <%= form.date_field :match_date, class: "form-control" %>
+    <%= form.datetime_field :match_date, class: "form-control" %>
     <%= form.label :home_team_id, class: "form-label" %>
     <%= form.select :home_team_id, @teams, {}, class: "form-select" %>
     <%= form.label :set_score, class: "form-label" %>

@@ -5,17 +5,19 @@ module Admin
     # GET /teams
     def index
       @rounds = Round.all
+      @points = current_user.bets.sum(:points)
     end
 
     def round_summary
-      RoundSummaryJob.perform(@round)
+      RoundSummaryJob.perform_later(@round)
+      redirect_to admin_root_path, notice: "Summary of Round #{@round.number} updated."
     end
 
     # GET /teams/1
     def show
     end
 
-    # GET /teams/new
+    # GET /teams/newv
     def new
       @round = Round.new
     end

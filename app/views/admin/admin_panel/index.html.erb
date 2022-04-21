@@ -35,7 +35,7 @@
         <%= link_to "Edit", edit_admin_round_path(round), class: "btn btn-primary" %>
         <%= link_to "Delete", admin_round_path(round), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete round: #{round.number}" } %>
         <%= link_to "Create match", new_admin_round_match_path(round), class: "btn btn-success" %>
-        <%= link_to "Round summary", round_summary_round_path(round), class: "btn btn-primary", data: { turbo_method: :post } %>
+        <%= link_to "Round summary", round_summary_admin_round_path(round), class: "btn btn-primary", data: { turbo_method: :post } %>
       </td>
     </tr>
     <% @matches.each do |match| %>

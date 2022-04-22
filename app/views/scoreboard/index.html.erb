@@ -1,0 +1,23 @@
+<h1>Scoreboard</h1>
+<table class="table table-stripes table-bordered table-hover" style="text-align: center;">
+  <tr>
+    <td style="width: 50%;">
+      <h2>User</h2>
+    </td>
+    <td><h2>Score</h2></td>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <% if user.first_name.present? or user.last_name.present? %>
+          <%= "#{user.first_name} #{user.last_name}" %>
+        <% else %>
+          <%= user.email %>
+        <% end %>
+      </td>
+      <td>
+        <%= user.bets.sum(:points) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

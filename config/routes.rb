@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # get 'users/edit'
   devise_for :users
+  get '/scoreboard', to: 'scoreboard#index'
   resources :teams
   resources :rounds do
     resources :matches do

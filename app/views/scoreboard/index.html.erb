@@ -1,10 +1,21 @@
 <h1>Scoreboard</h1>
 <table class="table table-stripes table-bordered table-hover" style="text-align: center;">
   <tr>
-    <td style="width: 50%;">
-      <h2>User</h2>
+    <td rowspan="2" style="width: 25%;">
+      <h3>User</h3>
     </td>
-    <td><h2>Score</h2></td>
+    <td rowspan="2" style="width: 10%;">
+      <h3>Total Score</h3>
+    </td>
+    <td colspan="30">
+      <h3>Rounds points</h3>
+    </td>
+  <tr>
+    <% @rounds.each do |round| %>
+      <td>
+        <h4><%= round.number %></h4>
+      </td>
+    <% end %>
   </tr>
   <% @users.each do |user| %>
     <tr>
@@ -18,6 +29,11 @@
       <td>
         <%= user.bets.sum(:points) %>
       </td>
+      <% @rounds.each do |round| %>
+        <td>
+          <%= round.bets.where(user_id: user).sum(:points) %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
 </table>

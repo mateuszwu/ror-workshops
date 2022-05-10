@@ -1,37 +1,37 @@
-Aby uruchomić projekt potrzebujesz:
+Before we get started, you have to install:
 ```
 Ruby: 3.1.1
 NodeJS: 14.15.0
 ```
-Kolejnym krokiem jest instalacja niezbędnych narzędzi:
+Another step is to install the essential tools:
 ```
 git
 yarn
 ```
-A także bibliotek:
+And also the libraries:
 ```
 bundle install
 yarn install
 ```
-Ostatni krok to stworzenie bazy danych:
+Last but not least is to create a database:
 ```
 rails db:create
 ```
-Po więcej szczegółów zapraszam na:
+For some more details, I suggest you to visit:
 - [Windows 10](https://gorails.com/setup/windows/10)
 - [Mac OSx](https://gorails.com/setup/osx/11-big-sur)
 - [Linux](https://gorails.com/setup/ubuntu/21.04)
 
-Aplikację startujemy poprzez wpisanie komendę
+The application can be started by running the following command:
 ```
 ./bin/dev
 ```
-Alternatywą jest uruchomienie poniższych 3 komend (każdej w osobnym oknie/tabie/panelu)
+As an alternative, you can run below 3 commands (each in a separate window/tab/panel)
 ```
 rails server -p 3000
 yarn build --watch
 yarn build:css --watch
 ```
 
-Jeśli wszystko się udało powinieneś zobaczyć następujący wydok odwiedzając stronę `localhost:3000`:
+If all went well you should see the following page by visiting `localhost:3000`:
 <img width="1137" alt="image" src="https://user-images.githubusercontent.com/18404037/159790311-df15b090-c0cc-4f37-97bd-24e54ef22eb9.png">
